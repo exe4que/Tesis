@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2015
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tesis Rework.CSharp.Plugins", "Tesis Rework.CSharp.Plugins.csproj", "{5FAB2D35-6EA5-672B-687F-A16A097BD3D7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tesis Rework.CSharp", "Tesis Rework.CSharp.csproj", "{141D2CF8-EC15-5EF8-5B34-10756C039E4E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tesis Rework.CSharp.Editor", "Tesis Rework.CSharp.Editor.csproj", "{179D6543-62AE-5858-E7CA-949A835D4542}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5FAB2D35-6EA5-672B-687F-A16A097BD3D7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5FAB2D35-6EA5-672B-687F-A16A097BD3D7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5FAB2D35-6EA5-672B-687F-A16A097BD3D7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5FAB2D35-6EA5-672B-687F-A16A097BD3D7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{141D2CF8-EC15-5EF8-5B34-10756C039E4E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{141D2CF8-EC15-5EF8-5B34-10756C039E4E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{141D2CF8-EC15-5EF8-5B34-10756C039E4E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{141D2CF8-EC15-5EF8-5B34-10756C039E4E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{179D6543-62AE-5858-E7CA-949A835D4542}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{179D6543-62AE-5858-E7CA-949A835D4542}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{179D6543-62AE-5858-E7CA-949A835D4542}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{179D6543-62AE-5858-E7CA-949A835D4542}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
