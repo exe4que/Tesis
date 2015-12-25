@@ -305,31 +305,31 @@ public class TileWindow : EditorWindow
 				GUILayout.BeginHorizontal();
 			}
 			ctr = singsprite.textureRect.x;
-			if (activeSprite == singsprite)
-			{
-				GUILayout.Button("", textureStyleAct, GUILayout.Width(singsprite.textureRect.width + 6), GUILayout.Height(singsprite.textureRect.height + 4));
-				GUI.DrawTextureWithTexCoords(new Rect(GUILayoutUtility.GetLastRect().x + 3f,
-				                                      GUILayoutUtility.GetLastRect().y + 2f,
-				                                      GUILayoutUtility.GetLastRect().width - 6f,
-				                                      GUILayoutUtility.GetLastRect().height - 4f),
-				                             singsprite.texture,
-				                             new Rect(singsprite.textureRect.x / (float)singsprite.texture.width,
-				         singsprite.textureRect.y / (float)singsprite.texture.height,
-				         singsprite.textureRect.width / (float)singsprite.texture.width,
-				         singsprite.textureRect.height / (float)singsprite.texture.height));
-			}
-			else
-			{
-				if (GUILayout.Button("", textureStyle, GUILayout.Width(singsprite.textureRect.width + 2), GUILayout.Height(singsprite.textureRect.height + 2)))
-					activeSprite = singsprite;
-				GUI.DrawTextureWithTexCoords(GUILayoutUtility.GetLastRect(), singsprite.texture,
-				                             new Rect(singsprite.textureRect.x / (float)singsprite.texture.width,
-												         singsprite.textureRect.y / (float)singsprite.texture.height,
-												         singsprite.textureRect.width / (float)singsprite.texture.width,
-												         singsprite.textureRect.height / (float)singsprite.texture.height));
-			}
-		}
-		}
+                if (activeSprite == singsprite)
+                {
+                    GUILayout.Button("", textureStyleAct, GUILayout.Width(singsprite.textureRect.width + 6), GUILayout.Height(singsprite.textureRect.height + 4));
+                    GUI.DrawTextureWithTexCoords(new Rect(GUILayoutUtility.GetLastRect().x + 3f,
+                                                          GUILayoutUtility.GetLastRect().y + 2f,
+                                                          GUILayoutUtility.GetLastRect().width - 6f,
+                                                          GUILayoutUtility.GetLastRect().height - 4f),
+                                                 singsprite.texture,
+                                                 new Rect(singsprite.textureRect.x / (float)singsprite.texture.width,
+                             singsprite.textureRect.y / (float)singsprite.texture.height,
+                             singsprite.textureRect.width / (float)singsprite.texture.width,
+                             singsprite.textureRect.height / (float)singsprite.texture.height));
+                }
+                else
+                {
+                    if (GUILayout.Button("", textureStyle, GUILayout.Width(singsprite.textureRect.width + 2), GUILayout.Height(singsprite.textureRect.height + 2)))
+                        activeSprite = singsprite;
+                    GUI.DrawTextureWithTexCoords(GUILayoutUtility.GetLastRect(), singsprite.texture,
+                                                 new Rect(singsprite.textureRect.x / (float)singsprite.texture.width,
+                                                             singsprite.textureRect.y / (float)singsprite.texture.height,
+                                                             singsprite.textureRect.width / (float)singsprite.texture.width,
+                                                             singsprite.textureRect.height / (float)singsprite.texture.height));
+                }
+            }
+        }
 		GUILayout.EndHorizontal();
 		EditorGUILayout.EndScrollView();
 		SceneView.RepaintAll();
