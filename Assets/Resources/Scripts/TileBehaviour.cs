@@ -29,5 +29,6 @@ public class TileBehaviour : MonoBehaviour {
             MapManager.instance.OnTileDied(this.transform.position, nearbyTiles);
             this.gameObject.SetActive(false);
         }
+        //this.gameObject.SetActive(false);
     }
 }
