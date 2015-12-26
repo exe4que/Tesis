@@ -11,16 +11,15 @@ public class TileWindow : EditorWindow
 {
 	private static bool isEnabled;
 	private Vector2 _scrollPos;
-	private static Vector2 gridSize = new Vector2(0.16f, 0.16f);
+	private static Vector2 gridSize = new Vector2(0.32f, 0.32f);
 	private static bool isGrid;
 	private static bool isDraw;
-	private static bool addBoxCollider;
 	private static bool isObjmode;
 	private static DRAWOPTION selected;
 	private static GameObject parentObj, tileObj;
 	private static int layerOrd;
 	private static string tagName;
-	private int index;
+	private static int index;
 	private string[] options;
 	private static Sprite[] allSprites;
 	private string[] files;
@@ -120,29 +119,33 @@ public class TileWindow : EditorWindow
 							}
 							if(isObjmode)
 								mouseWorldPos.z = mouseWorldPos.y + (activeSprite.bounds.size.y / -2.0f);
-							GameObject[] allgo = GameObject.FindObjectsOfType(typeof (GameObject)) as GameObject[];
-							int brk = 0;
+                            //GameObject[] allgo = GameObject.FindObjectsOfType(typeof (GameObject)) as GameObject[];
+                            GameObject[] allgo = GameObject.FindGameObjectsWithTag("Tile") as GameObject[];
+                            int brk = 0;
 							if (selected == DRAWOPTION.paint)
 							{
-								for (int i = 0; i < allgo.Length;i++)
-								{
-									if (Mathf.Approximately(allgo[i].transform.position.x, mouseWorldPos.x) && Mathf.Approximately(allgo[i].transform.position.y, mouseWorldPos.y) && Mathf.Approximately(allgo[i].transform.position.z, mouseWorldPos.z))
-									{
-										brk++;
-										break;
-									}
-								}
-								if (brk == 0)
-								{
+                                for (int i = 0; i < allgo.Length; i++)
+                                {
+                                    if (Mathf.Approximately(allgo[i].transform.position.x, mouseWorldPos.x) && Mathf.Approximately(allgo[i].transform.position.y, mouseWorldPos.y) && Mathf.Approximately(allgo[i].transform.position.z, mouseWorldPos.z))
+                                    {
+                                        brk++;
+                                        break;
+                                    }
+
+                                }
+                                if (brk == 0)
+                                {
                                     activeSprite = allSprites[0];
                                     GameObject newgo = (GameObject)Instantiate(tileObj, mouseWorldPos, new Quaternion());
                                     newgo.GetComponent<SpriteRenderer>().sprite = activeSprite;
-                                    newgo.name = activeSprite.name;
+                                    newgo.GetComponent<TileBehaviour>().index = index;
+                                    newgo.name = "Tile";
                                     newgo.tag = tagName;
                                     if (parentObj != null)
                                         newgo.transform.SetParent(parentObj.transform);
-								}
-							}
+                                    UpdateNearbyTiles(mouseWorldPos, allgo, newgo, true);
+                                }
+                            }
 							else if (selected == DRAWOPTION.paintover)
 							{
 								for (int i = 0; i < allgo.Length;i++)
@@ -170,6 +173,7 @@ public class TileWindow : EditorWindow
 									if (Mathf.Approximately(allgo[i].transform.position.x, mouseWorldPos.x) && Mathf.Approximately(allgo[i].transform.position.y, mouseWorldPos.y) && Mathf.Approximately(allgo[i].transform.position.z, mouseWorldPos.z))
 										GameObject.DestroyImmediate(allgo[i]);
 								}
+                                UpdateNearbyTiles(mouseWorldPos, allgo, null, false);
 							}
 						}
 					}
@@ -212,7 +216,70 @@ public class TileWindow : EditorWindow
 				}
 			}
 		}
-	}
+
+        private static void UpdateNearbyTiles(Vector3 mouseWorldPos, GameObject[] allgo, GameObject newgo, bool isAddition)
+        {
+            for (int i = 0; i < allgo.Length; i++)
+            {
+
+                if (Mathf.Approximately(allgo[i].transform.position.x, mouseWorldPos.x - gridSize.x) && Mathf.Approximately(allgo[i].transform.position.y - gridSize.y, mouseWorldPos.y) && Mathf.Approximately(allgo[i].transform.position.z, mouseWorldPos.z))
+                {
+                    allgo[i].GetComponent<TileBehaviour>().nearbyTiles[7] = isAddition;
+                    if (newgo != null)
+                        newgo.GetComponent<TileBehaviour>().nearbyTiles[0] = true;  
+                }
+
+                if (Mathf.Approximately(allgo[i].transform.position.x, mouseWorldPos.x) && Mathf.Approximately(allgo[i].transform.position.y - gridSize.y, mouseWorldPos.y) && Mathf.Approximately(allgo[i].transform.position.z, mouseWorldPos.z))
+                {
+                    allgo[i].GetComponent<TileBehaviour>().nearbyTiles[6] = isAddition;
+                    if (newgo != null)
+                        newgo.GetComponent<TileBehaviour>().nearbyTiles[1] = true;
+                }
+
+                if (Mathf.Approximately(allgo[i].transform.position.x, mouseWorldPos.x + gridSize.x) && Mathf.Approximately(allgo[i].transform.position.y - gridSize.y, mouseWorldPos.y) && Mathf.Approximately(allgo[i].transform.position.z, mouseWorldPos.z))
+                {
+                    allgo[i].GetComponent<TileBehaviour>().nearbyTiles[5] = isAddition;
+                    if (newgo != null)
+                        newgo.GetComponent<TileBehaviour>().nearbyTiles[2] = true;
+                }
+
+                if (Mathf.Approximately(allgo[i].transform.position.x, mouseWorldPos.x - gridSize.x) && Mathf.Approximately(allgo[i].transform.position.y, mouseWorldPos.y) && Mathf.Approximately(allgo[i].transform.position.z, mouseWorldPos.z))
+                {
+                    allgo[i].GetComponent<TileBehaviour>().nearbyTiles[4] = isAddition;
+                    if (newgo != null)
+                        newgo.GetComponent<TileBehaviour>().nearbyTiles[3] = true;
+                }
+
+                if (Mathf.Approximately(allgo[i].transform.position.x, mouseWorldPos.x + gridSize.x) && Mathf.Approximately(allgo[i].transform.position.y, mouseWorldPos.y) && Mathf.Approximately(allgo[i].transform.position.z, mouseWorldPos.z))
+                {
+                    allgo[i].GetComponent<TileBehaviour>().nearbyTiles[3] = isAddition;
+                    if (newgo != null)
+                        newgo.GetComponent<TileBehaviour>().nearbyTiles[4] = true;
+                }
+
+                if (Mathf.Approximately(allgo[i].transform.position.x, mouseWorldPos.x - gridSize.x) && Mathf.Approximately(allgo[i].transform.position.y + gridSize.y, mouseWorldPos.y) && Mathf.Approximately(allgo[i].transform.position.z, mouseWorldPos.z))
+                {
+                    allgo[i].GetComponent<TileBehaviour>().nearbyTiles[2] = isAddition;
+                    if (newgo != null)
+                        newgo.GetComponent<TileBehaviour>().nearbyTiles[5] = true;
+                }
+
+                if (Mathf.Approximately(allgo[i].transform.position.x, mouseWorldPos.x) && Mathf.Approximately(allgo[i].transform.position.y + gridSize.y, mouseWorldPos.y) && Mathf.Approximately(allgo[i].transform.position.z, mouseWorldPos.z))
+                {
+                    allgo[i].GetComponent<TileBehaviour>().nearbyTiles[1] = isAddition;
+                    if (newgo != null)
+                        newgo.GetComponent<TileBehaviour>().nearbyTiles[6] = true;
+                }
+
+                if (Mathf.Approximately(allgo[i].transform.position.x, mouseWorldPos.x + gridSize.x) && Mathf.Approximately(allgo[i].transform.position.y + gridSize.y, mouseWorldPos.y) && Mathf.Approximately(allgo[i].transform.position.z, mouseWorldPos.z))
+                {
+                    allgo[i].GetComponent<TileBehaviour>().nearbyTiles[0] = isAddition;
+                    if (newgo != null)
+                        newgo.GetComponent<TileBehaviour>().nearbyTiles[7] = true;
+                }
+            }
+        }
+    }
 
 	[CustomEditor(typeof(GameObject))]
 	public class SceneGUITest : Editor
@@ -270,11 +337,6 @@ public class TileWindow : EditorWindow
         EditorGUILayout.LabelField("Tile Object", GUILayout.Width(256));
         tileObj = (GameObject)EditorGUILayout.ObjectField(tileObj, typeof(GameObject), true, GUILayout.Width(256));
 
-		GUILayout.BeginHorizontal();
-		addBoxCollider = EditorGUILayout.Toggle(addBoxCollider, GUILayout.Width(16));
-		EditorGUILayout.LabelField("Add Box Collider", GUILayout.Width(256));
-		GUILayout.EndHorizontal();
-
 		EditorGUILayout.LabelField("Layer Order", GUILayout.Width(256));
 
 		GUILayout.BeginHorizontal();
@@ -323,7 +385,7 @@ public class TileWindow : EditorWindow
                 else
                 {
                     if (GUILayout.Button("", textureStyle, GUILayout.Width(singsprite.textureRect.width + 2), GUILayout.Height(singsprite.textureRect.height + 2)))
-                        activeSprite = singsprite;
+                       activeSprite = singsprite;
                     GUI.DrawTextureWithTexCoords(GUILayoutUtility.GetLastRect(), singsprite.texture,
                                                  new Rect(singsprite.textureRect.x / (float)singsprite.texture.width,
                                                              singsprite.textureRect.y / (float)singsprite.texture.height,
