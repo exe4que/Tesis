@@ -7,11 +7,12 @@ public class BulletBehaviour : MonoBehaviour
     Vector3 hitPoint, originalPosition, lastPoint;
     RaycastHit2D hit;
     float distance, maxDistance = 5f, velocity = 10f;
+    public LayerMask whatToHit;
     void OnEnable()
     {
         originalPosition = this.transform.position;
         lastPoint = this.transform.position + this.transform.up * maxDistance;
-        hit = Physics2D.Linecast(this.transform.position, lastPoint);
+        hit = Physics2D.Linecast(this.transform.position, lastPoint, whatToHit);
         hitPoint = hit.collider != null ? new Vector3(hit.point.x, hit.point.y) : lastPoint;
         distance = Vector3.Distance(this.transform.position, hitPoint);
     }
@@ -26,7 +27,19 @@ public class BulletBehaviour : MonoBehaviour
             if (hit.collider != null)
             {
                 hit.collider.SendMessage("Piew", SendMessageOptions.DontRequireReceiver);
+                PoolMaster.Spawn("Particles", "bulletEffectPart", this.transform.position, LookAtTarget(GameObject.Find("Player").transform.position));
             }
         }
+    }
+
+    private Quaternion LookAtTarget(Vector3 _target)
+    {
+        Vector3 diff = _target - transform.position;
+        diff.Normalize();
+
+        float rot_x = Mathf.Atan2(diff.x, diff.y) * Mathf.Rad2Deg;
+        Quaternion rot = Quaternion.Euler(rot_x - 90f, 90f, 0);
+
+        return rot;
     }
 }

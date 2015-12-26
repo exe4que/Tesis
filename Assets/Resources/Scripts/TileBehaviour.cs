@@ -27,6 +27,7 @@ public class TileBehaviour : MonoBehaviour {
         if (Array.IndexOf(MapManager.destroyableTileIndexes, index) != -1)
         {
             MapManager.instance.OnTileDied(this.transform.position, nearbyTiles);
+            PoolMaster.Spawn("Particles", "dirtExplosionEffect", this.transform.position);
             this.gameObject.SetActive(false);
         }
         //this.gameObject.SetActive(false);
