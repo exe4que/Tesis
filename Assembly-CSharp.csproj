@@ -49,6 +49,7 @@
      <Compile Include="Assets\Resources\Scripts\CameraFollow.cs" />
      <Compile Include="Assets\Resources\Scripts\LookAt.cs" />
      <Compile Include="Assets\Resources\Scripts\MapManager.cs" />
+     <Compile Include="Assets\Resources\Scripts\PooledParticleBehaviour.cs" />
      <Compile Include="Assets\Resources\Scripts\Shoot.cs" />
      <Compile Include="Assets\Resources\Scripts\TileBehaviour.cs" />
      <Compile Include="Assets\Resources\Scripts\translateAndLookAt.cs" />

@@ -9,7 +9,7 @@ public class Shoot : MonoBehaviour {
         {
             if (Time.time >= lastShootTime + 1/bulletsPerSecond)
             {
-                PoolMaster.Spawn("Projectiles", "Bullet", this.transform.position + this.transform.up * 0.5f, this.transform.rotation);
+                PoolMaster.Spawn("Projectiles", "Bullet", this.transform.position + this.transform.up * 0.4f, this.transform.rotation);
                 lastShootTime = Time.time;
             }
         }
