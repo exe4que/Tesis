@@ -17,12 +17,12 @@ public class TileWindow : EditorWindow
 	private static bool addBoxCollider;
 	private static bool isObjmode;
 	private static DRAWOPTION selected;
-	private static GameObject parentObj;
+	private static GameObject parentObj, tileObj;
 	private static int layerOrd;
 	private static string tagName;
 	private int index;
 	private string[] options;
-	private Sprite[] allSprites;
+	private static Sprite[] allSprites;
 	private string[] files;
 	private static Sprite activeSprite;
 	private static GameObject activeGo;
@@ -134,14 +134,13 @@ public class TileWindow : EditorWindow
 								}
 								if (brk == 0)
 								{
-									GameObject newgo = new GameObject(activeSprite.name, typeof(SpriteRenderer));
-									newgo.transform.position = mouseWorldPos;
-									newgo.GetComponent<SpriteRenderer>().sprite = activeSprite;
-									newgo.tag = tagName;
-									if (addBoxCollider)
-										newgo.AddComponent<BoxCollider2D>();
-									if (parentObj != null)
-										newgo.transform.parent = parentObj.transform;
+                                    activeSprite = allSprites[0];
+                                    GameObject newgo = (GameObject)Instantiate(tileObj, mouseWorldPos, new Quaternion());
+                                    newgo.GetComponent<SpriteRenderer>().sprite = activeSprite;
+                                    newgo.name = activeSprite.name;
+                                    newgo.tag = tagName;
+                                    if (parentObj != null)
+                                        newgo.transform.SetParent(parentObj.transform);
 								}
 							}
 							else if (selected == DRAWOPTION.paintover)
@@ -156,12 +155,12 @@ public class TileWindow : EditorWindow
 								}
 								if (brk == 0)
 								{
-									GameObject newgo = new GameObject(activeSprite.name, typeof(SpriteRenderer));
-									newgo.transform.position = mouseWorldPos;
-									newgo.GetComponent<SpriteRenderer>().sprite = activeSprite;
+									GameObject newgo = (GameObject) Instantiate(tileObj,  mouseWorldPos, new Quaternion());
+									//newgo.transform.position = mouseWorldPos;
+									//newgo.GetComponent<SpriteRenderer>().sprite = activeSprite;
 									newgo.tag = tagName;
-									if (addBoxCollider)
-										newgo.AddComponent<BoxCollider2D>();
+									//if (addBoxCollider)
+										//newgo.AddComponent<BoxCollider2D>();
 								}
 							}
 							else if (selected == DRAWOPTION.erase)
@@ -267,6 +266,9 @@ public class TileWindow : EditorWindow
 
 		EditorGUILayout.LabelField("Parent Object", GUILayout.Width(256));
 		parentObj = (GameObject)EditorGUILayout.ObjectField(parentObj, typeof(GameObject),true,GUILayout.Width(256));
+
+        EditorGUILayout.LabelField("Tile Object", GUILayout.Width(256));
+        tileObj = (GameObject)EditorGUILayout.ObjectField(tileObj, typeof(GameObject), true, GUILayout.Width(256));
 
 		GUILayout.BeginHorizontal();
 		addBoxCollider = EditorGUILayout.Toggle(addBoxCollider, GUILayout.Width(16));

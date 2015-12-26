@@ -48,7 +48,9 @@
      <Compile Include="Assets\Resources\Scripts\BulletBehaviour.cs" />
      <Compile Include="Assets\Resources\Scripts\CameraFollow.cs" />
      <Compile Include="Assets\Resources\Scripts\LookAt.cs" />
+     <Compile Include="Assets\Resources\Scripts\MapManager.cs" />
      <Compile Include="Assets\Resources\Scripts\Shoot.cs" />
+     <Compile Include="Assets\Resources\Scripts\TileBehaviour.cs" />
      <Compile Include="Assets\Resources\Scripts\translateAndLookAt.cs" />
      <Compile Include="Assets\hamsterbyte\Pool Master\ObjectPool.cs" />
      <Compile Include="Assets\hamsterbyte\Pool Master\Pool.cs" />
