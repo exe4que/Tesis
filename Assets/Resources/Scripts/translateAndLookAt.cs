@@ -30,8 +30,11 @@ public class translateAndLookAt : MonoBehaviour
 			inputAxis = new Vector3 (Input.GetAxis ("Horizontal"), Input.GetAxis ("Vertical"), 0);
 		}else{
 			inputAxis = controller.botDirection;
-			Debug.Log(body.velocity);
-			//Debug.Log("controller.botDirection = " + controller.botDirection);
+			//Debug.Log(body.velocity);
+			if (body.velocity == Vector2.zero ) {
+				isColliding = true;
+				//Debug.Log("body.velocity == Vector2.zero");
+			}
 		}
 		//inputAxis.Normalize ();
 		body.velocity = new Vector3 (inputAxis.x, inputAxis.y, 0) * velocity * Time.deltaTime;
@@ -40,10 +43,7 @@ public class translateAndLookAt : MonoBehaviour
 			LookAtTarget (direction);
 		}
 
-		if (body.velocity == Vector2.zero) {
-			isColliding = true;
-			Debug.Log("body.velocity == Vector2.zero");
-		}
+
 	}
 
 	private void LookAtTarget (Vector3 _target)

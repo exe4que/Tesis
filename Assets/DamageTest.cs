@@ -4,6 +4,8 @@ using System.Collections;
 public class DamageTest : MonoBehaviour {
 
 	void OnTriggerStay2D(Collider2D col){
-		col.GetComponent<LifeController>().takeDamage(1);
+		if (col.name == "Player") {
+			col.GetComponent<LifeController>().takeDamage(1);
+		}
 	}
 }
