@@ -384,8 +384,9 @@ public class TileWindow : EditorWindow
                 }
                 else
                 {
-                    if (GUILayout.Button("", textureStyle, GUILayout.Width(singsprite.textureRect.width + 2), GUILayout.Height(singsprite.textureRect.height + 2)))
-                       activeSprite = singsprite;
+					if (GUILayout.Button("", textureStyle, GUILayout.Width(singsprite.textureRect.width + 2), GUILayout.Height(singsprite.textureRect.height + 2))){}
+                       //activeSprite = singsprite;
+					activeSprite = allSprites[0];
                     GUI.DrawTextureWithTexCoords(GUILayoutUtility.GetLastRect(), singsprite.texture,
                                                  new Rect(singsprite.textureRect.x / (float)singsprite.texture.width,
                                                              singsprite.textureRect.y / (float)singsprite.texture.height,

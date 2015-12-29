@@ -26,7 +26,7 @@ public class BulletBehaviour : MonoBehaviour
             this.gameObject.SetActive(false);
             if (hit.collider != null)
             {
-                hit.collider.SendMessage("Piew", SendMessageOptions.DontRequireReceiver);
+				hit.collider.GetComponent<TileBehaviour>().Piew();
                 PoolMaster.Spawn("Particles", "bulletEffectPart", this.transform.position, LookAtTarget(GameObject.Find("Player").transform.position));
             }
         }
