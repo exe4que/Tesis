@@ -17,12 +17,14 @@ public class BotMovementController : MonoBehaviour
 
 	void Update ()
 	{
-		if ((int)Random.Range (0, (1/Time.deltaTime) * 5) == 0)
+		if ((int)Random.Range (0, (1 / Time.deltaTime) * 5) == 0)
 			RandomizeDirection ();
 
 		if (bot.isColliding) {
 			RandomizeDirection ();
 		}
+		if (bot.isBot)
+			bot.inputAxis = botDirection;
 	}
 
 	void RandomizeDirection ()
