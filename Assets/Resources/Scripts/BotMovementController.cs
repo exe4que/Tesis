@@ -7,6 +7,7 @@ public class BotMovementController : MonoBehaviour
 {
 
 	public Vector3 botDirection;
+    Vector3 lastDirection;
 	translateAndLookAt bot;
 
 	void Awake ()
@@ -29,8 +30,10 @@ public class BotMovementController : MonoBehaviour
 
 	void RandomizeDirection ()
 	{
-		do {
+        lastDirection = botDirection;
+        do
+        {
 			botDirection = new Vector3 ((int)Random.Range (-1, 2), (int)Random.Range (-1, 2));
-		} while ((int)botDirection.x == 0 & (int)botDirection.x == (int)botDirection.y);
+		} while (((int)botDirection.x == 0 && (int)botDirection.y == 0) || botDirection == lastDirection);
 	}
 }

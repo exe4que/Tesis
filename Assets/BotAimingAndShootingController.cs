@@ -8,6 +8,7 @@ using VectorExtensionMethods;
 public class BotAimingAndShootingController : MonoBehaviour
 {
 	public float aimingUnitsError = 1f;
+    public Transform defaultLookPoint;
 	Shoot shootScript;
 	LookAt lookAtScript;
 	Vector3 targetPosition;
@@ -15,7 +16,7 @@ public class BotAimingAndShootingController : MonoBehaviour
 
 	void Awake ()
 	{
-		targetPosition = transform.position + transform.parent.up;
+		targetPosition = defaultLookPoint.position;
 		shootScript = this.GetComponent<Shoot>();
 		lookAtScript = this.GetComponent<LookAt>();
 	}
@@ -33,7 +34,7 @@ public class BotAimingAndShootingController : MonoBehaviour
 	}
 
 	void OnTriggerExit2D(Collider2D col){
-		targetPosition = transform.position + transform.parent.up;
+		targetPosition = defaultLookPoint.position;
 		fireButton = false;
 	}
 }
