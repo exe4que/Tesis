@@ -11,7 +11,6 @@ public class MapManager : MonoBehaviour
     Sprite[][] spriteArray;
     string[] files;
     GameObject[] tileArray;
-    public static int[] destroyableTileIndexes = new int[1] { 0 };
     private static Vector2 gridSize = new Vector2(0.32f, 0.32f);
 
     public static MapManager _instance;

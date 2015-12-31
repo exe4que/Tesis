@@ -45,7 +45,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\BotAimingAndShootingController.cs" />
+     <Compile Include="Assets\GameManager.cs" />
+     <Compile Include="Assets\Resources\Scripts\BotAimingAndShootingController.cs" />
      <Compile Include="Assets\Resources\Scripts\BotMovementController.cs" />
      <Compile Include="Assets\Resources\Scripts\BulletBehaviour.cs" />
      <Compile Include="Assets\Resources\Scripts\BulletFormBehaviour.cs" />

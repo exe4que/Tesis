@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 71354fb402c829d4fa18c93039fedfe9
-timeCreated: 1451084208
+timeCreated: 1451602850
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -51,6 +51,54 @@ TextureImporter:
     21300088: stone_44
     21300090: stone_45
     21300092: stone_46
+    21300094: 01 - Stone_0
+    21300096: 01 - Stone_1
+    21300098: 01 - Stone_2
+    21300100: 01 - Stone_3
+    21300102: 01 - Stone_4
+    21300104: 01 - Stone_5
+    21300106: 01 - Stone_6
+    21300108: 01 - Stone_7
+    21300110: 01 - Stone_8
+    21300112: 01 - Stone_9
+    21300114: 01 - Stone_10
+    21300116: 01 - Stone_11
+    21300118: 01 - Stone_12
+    21300120: 01 - Stone_13
+    21300122: 01 - Stone_14
+    21300124: 01 - Stone_15
+    21300126: 01 - Stone_16
+    21300128: 01 - Stone_17
+    21300130: 01 - Stone_18
+    21300132: 01 - Stone_19
+    21300134: 01 - Stone_20
+    21300136: 01 - Stone_21
+    21300138: 01 - Stone_22
+    21300140: 01 - Stone_23
+    21300142: 01 - Stone_24
+    21300144: 01 - Stone_25
+    21300146: 01 - Stone_26
+    21300148: 01 - Stone_27
+    21300150: 01 - Stone_28
+    21300152: 01 - Stone_29
+    21300154: 01 - Stone_30
+    21300156: 01 - Stone_31
+    21300158: 01 - Stone_32
+    21300160: 01 - Stone_33
+    21300162: 01 - Stone_34
+    21300164: 01 - Stone_35
+    21300166: 01 - Stone_36
+    21300168: 01 - Stone_37
+    21300170: 01 - Stone_38
+    21300172: 01 - Stone_39
+    21300174: 01 - Stone_40
+    21300176: 01 - Stone_41
+    21300178: 01 - Stone_42
+    21300180: 01 - Stone_43
+    21300182: 01 - Stone_44
+    21300184: 01 - Stone_45
+    21300186: 01 - Stone_46
+    21300188: 01 - Stone_47
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -97,7 +145,7 @@ TextureImporter:
   buildTargetSettings: []
   spriteSheet:
     sprites:
-    - name: stone_0
+    - name: 01 - Stone_0
       rect:
         serializedVersion: 2
         x: 0
@@ -112,7 +160,7 @@ TextureImporter:
         - {x: -16, y: -16}
         - {x: 16, y: -16}
         - {x: 16, y: 16}
-    - name: stone_1
+    - name: 01 - Stone_1
       rect:
         serializedVersion: 2
         x: 32
@@ -127,7 +175,7 @@ TextureImporter:
         - {x: -16, y: -16}
         - {x: 16, y: -16}
         - {x: 16, y: 16}
-    - name: stone_2
+    - name: 01 - Stone_2
       rect:
         serializedVersion: 2
         x: 64
@@ -142,7 +190,7 @@ TextureImporter:
         - {x: -16, y: -16}
         - {x: 16, y: -16}
         - {x: 16, y: 16}
-    - name: stone_3
+    - name: 01 - Stone_3
       rect:
         serializedVersion: 2
         x: 96
@@ -157,7 +205,7 @@ TextureImporter:
         - {x: -16, y: -16}
         - {x: 16, y: -16}
         - {x: 16, y: 16}
-    - name: stone_4
+    - name: 01 - Stone_4
       rect:
         serializedVersion: 2
         x: 128
@@ -172,7 +220,7 @@ TextureImporter:
         - {x: -16, y: -16}
         - {x: 16, y: -16}
         - {x: 16, y: 16}
-    - name: stone_5
+    - name: 01 - Stone_5
       rect:
         serializedVersion: 2
         x: 160
@@ -187,7 +235,7 @@ TextureImporter:
         - {x: -16, y: -16}
         - {x: 16, y: -16}
         - {x: 16, y: 16}
-    - name: stone_6
+    - name: 01 - Stone_6
       rect:
         serializedVersion: 2
         x: 192
@@ -202,7 +250,7 @@ TextureImporter:
         - {x: -16, y: -16}
         - {x: 16, y: -16}
         - {x: 16, y: 16}
-    - name: stone_7
+    - name: 01 - Stone_7
       rect:
         serializedVersion: 2
         x: 224
@@ -217,7 +265,7 @@ TextureImporter:
         - {x: -16, y: -16}
         - {x: 16, y: -16}
         - {x: 16, y: 16}
-    - name: stone_8
+    - name: 01 - Stone_8
       rect:
         serializedVersion: 2
         x: 0
@@ -232,7 +280,7 @@ TextureImporter:
         - {x: -16, y: -16}
         - {x: 16, y: -16}
         - {x: 16, y: 16}
-    - name: stone_9
+    - name: 01 - Stone_9
       rect:
         serializedVersion: 2
         x: 32
@@ -247,7 +295,7 @@ TextureImporter:
         - {x: -16, y: -16}
         - {x: 16, y: -16}
         - {x: 16, y: 16}
-    - name: stone_10
+    - name: 01 - Stone_10
       rect:
         serializedVersion: 2
         x: 64
@@ -262,7 +310,7 @@ TextureImporter:
         - {x: -16, y: -16}
         - {x: 16, y: -16}
         - {x: 16, y: 16}
-    - name: stone_11
+    - name: 01 - Stone_11
       rect:
         serializedVersion: 2
         x: 96
@@ -277,7 +325,7 @@ TextureImporter:
         - {x: -16, y: -16}
         - {x: 16, y: -16}
         - {x: 16, y: 16}
-    - name: stone_12
+    - name: 01 - Stone_12
       rect:
         serializedVersion: 2
         x: 128
@@ -292,7 +340,7 @@ TextureImporter:
         - {x: -16, y: -16}
         - {x: 16, y: -16}
         - {x: 16, y: 16}
-    - name: stone_13
+    - name: 01 - Stone_13
       rect:
         serializedVersion: 2
         x: 160
@@ -307,7 +355,7 @@ TextureImporter:
         - {x: -16, y: -16}
         - {x: 16, y: -16}
         - {x: 16, y: 16}
-    - name: stone_14
+    - name: 01 - Stone_14
       rect:
         serializedVersion: 2
         x: 192
@@ -322,7 +370,7 @@ TextureImporter:
         - {x: -16, y: -16}
         - {x: 16, y: -16}
         - {x: 16, y: 16}
-    - name: stone_15
+    - name: 01 - Stone_15
       rect:
         serializedVersion: 2
         x: 224
@@ -337,7 +385,7 @@ TextureImporter:
         - {x: -16, y: -16}
         - {x: 16, y: -16}
         - {x: 16, y: 16}
-    - name: stone_16
+    - name: 01 - Stone_16
       rect:
         serializedVersion: 2
         x: 0
@@ -352,7 +400,7 @@ TextureImporter:
         - {x: -16, y: -16}
         - {x: 16, y: -16}
         - {x: 16, y: 16}
-    - name: stone_17
+    - name: 01 - Stone_17
       rect:
         serializedVersion: 2
         x: 32
@@ -367,7 +415,7 @@ TextureImporter:
         - {x: -16, y: -16}
         - {x: 16, y: -16}
         - {x: 16, y: 16}
-    - name: stone_18
+    - name: 01 - Stone_18
       rect:
         serializedVersion: 2
         x: 64
@@ -382,7 +430,7 @@ TextureImporter:
         - {x: -16, y: -16}
         - {x: 16, y: -16}
         - {x: 16, y: 16}
-    - name: stone_19
+    - name: 01 - Stone_19
       rect:
         serializedVersion: 2
         x: 96
@@ -397,7 +445,7 @@ TextureImporter:
         - {x: -16, y: -16}
         - {x: 16, y: -16}
         - {x: 16, y: 16}
-    - name: stone_20
+    - name: 01 - Stone_20
       rect:
         serializedVersion: 2
         x: 128
@@ -411,8 +459,9 @@ TextureImporter:
       - - {x: -16, y: 16}
         - {x: -16, y: -16}
         - {x: 16, y: -16}
-        - {x: 16, y: 16}
-    - name: stone_21
+        - {x: 16, y: 12}
+        - {x: 12, y: 16}
+    - name: 01 - Stone_21
       rect:
         serializedVersion: 2
         x: 160
@@ -425,9 +474,10 @@ TextureImporter:
       outline:
       - - {x: -16, y: 16}
         - {x: -16, y: -16}
-        - {x: 16, y: -16}
+        - {x: 12, y: -16}
+        - {x: 16, y: -13}
         - {x: 16, y: 16}
-    - name: stone_22
+    - name: 01 - Stone_22
       rect:
         serializedVersion: 2
         x: 192
@@ -439,10 +489,11 @@ TextureImporter:
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
       - - {x: -16, y: 16}
-        - {x: -16, y: -16}
+        - {x: -16, y: -14}
+        - {x: -13, y: -16}
         - {x: 16, y: -16}
         - {x: 16, y: 16}
-    - name: stone_23
+    - name: 01 - Stone_23
       rect:
         serializedVersion: 2
         x: 224
@@ -453,11 +504,12 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
-      - - {x: -16, y: 16}
+      - - {x: -13, y: 16}
+        - {x: -16, y: 13}
         - {x: -16, y: -16}
         - {x: 16, y: -16}
         - {x: 16, y: 16}
-    - name: stone_24
+    - name: 01 - Stone_24
       rect:
         serializedVersion: 2
         x: 0
@@ -472,7 +524,7 @@ TextureImporter:
         - {x: -16, y: -16}
         - {x: 16, y: -16}
         - {x: 16, y: 16}
-    - name: stone_25
+    - name: 01 - Stone_25
       rect:
         serializedVersion: 2
         x: 32
@@ -487,7 +539,7 @@ TextureImporter:
         - {x: -16, y: -16}
         - {x: 16, y: -16}
         - {x: 16, y: 16}
-    - name: stone_26
+    - name: 01 - Stone_26
       rect:
         serializedVersion: 2
         x: 64
@@ -502,7 +554,7 @@ TextureImporter:
         - {x: -16, y: -16}
         - {x: 16, y: -16}
         - {x: 16, y: 16}
-    - name: stone_27
+    - name: 01 - Stone_27
       rect:
         serializedVersion: 2
         x: 96
@@ -517,7 +569,7 @@ TextureImporter:
         - {x: -16, y: -16}
         - {x: 16, y: -16}
         - {x: 16, y: 16}
-    - name: stone_28
+    - name: 01 - Stone_28
       rect:
         serializedVersion: 2
         x: 128
@@ -528,11 +580,12 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
-      - - {x: -16, y: 16}
+      - - {x: -13, y: 16}
+        - {x: -16, y: 14}
         - {x: -16, y: -16}
         - {x: 16, y: -16}
         - {x: 16, y: 16}
-    - name: stone_29
+    - name: 01 - Stone_29
       rect:
         serializedVersion: 2
         x: 160
@@ -543,11 +596,12 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
-      - - {x: -16, y: 16}
+      - - {x: -15, y: 16}
+        - {x: -16, y: 15}
         - {x: -16, y: -16}
         - {x: 16, y: -16}
         - {x: 16, y: 16}
-    - name: stone_30
+    - name: 01 - Stone_30
       rect:
         serializedVersion: 2
         x: 192
@@ -558,11 +612,14 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
-      - - {x: -16, y: 16}
-        - {x: -16, y: -16}
+      - - {x: -12, y: 16}
+        - {x: -16, y: 13}
+        - {x: -16, y: -15}
+        - {x: -15, y: -16}
         - {x: 16, y: -16}
-        - {x: 16, y: 16}
-    - name: stone_31
+        - {x: 16, y: 12}
+        - {x: 13, y: 16}
+    - name: 01 - Stone_31
       rect:
         serializedVersion: 2
         x: 224
@@ -577,7 +634,7 @@ TextureImporter:
         - {x: -16, y: -16}
         - {x: 16, y: -16}
         - {x: 16, y: 16}
-    - name: stone_32
+    - name: 01 - Stone_32
       rect:
         serializedVersion: 2
         x: 0
@@ -592,7 +649,7 @@ TextureImporter:
         - {x: -16, y: -16}
         - {x: 16, y: -16}
         - {x: 16, y: 16}
-    - name: stone_33
+    - name: 01 - Stone_33
       rect:
         serializedVersion: 2
         x: 32
@@ -607,7 +664,7 @@ TextureImporter:
         - {x: -16, y: -16}
         - {x: 16, y: -16}
         - {x: 16, y: 16}
-    - name: stone_34
+    - name: 01 - Stone_34
       rect:
         serializedVersion: 2
         x: 64
@@ -622,7 +679,7 @@ TextureImporter:
         - {x: -16, y: -16}
         - {x: 16, y: -16}
         - {x: 16, y: 16}
-    - name: stone_35
+    - name: 01 - Stone_35
       rect:
         serializedVersion: 2
         x: 96
@@ -637,7 +694,7 @@ TextureImporter:
         - {x: -16, y: -16}
         - {x: 16, y: -16}
         - {x: 16, y: 16}
-    - name: stone_36
+    - name: 01 - Stone_36
       rect:
         serializedVersion: 2
         x: 128
@@ -652,7 +709,7 @@ TextureImporter:
         - {x: -16, y: -16}
         - {x: 16, y: -16}
         - {x: 16, y: 16}
-    - name: stone_37
+    - name: 01 - Stone_37
       rect:
         serializedVersion: 2
         x: 160
@@ -667,7 +724,7 @@ TextureImporter:
         - {x: -16, y: -16}
         - {x: 16, y: -16}
         - {x: 16, y: 16}
-    - name: stone_38
+    - name: 01 - Stone_38
       rect:
         serializedVersion: 2
         x: 192
@@ -682,7 +739,7 @@ TextureImporter:
         - {x: -16, y: -16}
         - {x: 16, y: -16}
         - {x: 16, y: 16}
-    - name: stone_39
+    - name: 01 - Stone_39
       rect:
         serializedVersion: 2
         x: 224
@@ -695,9 +752,10 @@ TextureImporter:
       outline:
       - - {x: -16, y: 16}
         - {x: -16, y: -16}
-        - {x: 16, y: -16}
+        - {x: 12, y: -16}
+        - {x: 16, y: -13}
         - {x: 16, y: 16}
-    - name: stone_40
+    - name: 01 - Stone_40
       rect:
         serializedVersion: 2
         x: 0
@@ -709,10 +767,11 @@ TextureImporter:
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
       - - {x: -16, y: 16}
-        - {x: -16, y: -16}
+        - {x: -16, y: -14}
+        - {x: -13, y: -16}
         - {x: 16, y: -16}
         - {x: 16, y: 16}
-    - name: stone_41
+    - name: 01 - Stone_41
       rect:
         serializedVersion: 2
         x: 32
@@ -723,11 +782,12 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
-      - - {x: -16, y: 16}
+      - - {x: -13, y: 16}
+        - {x: -16, y: 13}
         - {x: -16, y: -16}
         - {x: 16, y: -16}
         - {x: 16, y: 16}
-    - name: stone_42
+    - name: 01 - Stone_42
       rect:
         serializedVersion: 2
         x: 64
@@ -741,8 +801,9 @@ TextureImporter:
       - - {x: -16, y: 16}
         - {x: -16, y: -16}
         - {x: 16, y: -16}
-        - {x: 16, y: 16}
-    - name: stone_43
+        - {x: 16, y: 12}
+        - {x: 12, y: 16}
+    - name: 01 - Stone_43
       rect:
         serializedVersion: 2
         x: 96
@@ -757,7 +818,7 @@ TextureImporter:
         - {x: -16, y: -16}
         - {x: 16, y: -16}
         - {x: 16, y: 16}
-    - name: stone_44
+    - name: 01 - Stone_44
       rect:
         serializedVersion: 2
         x: 128
@@ -772,7 +833,7 @@ TextureImporter:
         - {x: -16, y: -16}
         - {x: 16, y: -16}
         - {x: 16, y: 16}
-    - name: stone_45
+    - name: 01 - Stone_45
       rect:
         serializedVersion: 2
         x: 160
@@ -787,10 +848,25 @@ TextureImporter:
         - {x: -16, y: -16}
         - {x: 16, y: -16}
         - {x: 16, y: 16}
-    - name: stone_46
+    - name: 01 - Stone_46
       rect:
         serializedVersion: 2
         x: 192
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -16, y: 16}
+        - {x: -16, y: -16}
+        - {x: 16, y: -16}
+        - {x: 16, y: 16}
+    - name: 01 - Stone_47
+      rect:
+        serializedVersion: 2
+        x: 224
         y: 0
         width: 32
         height: 32

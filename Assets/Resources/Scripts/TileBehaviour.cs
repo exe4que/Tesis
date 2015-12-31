@@ -22,9 +22,9 @@ public class TileBehaviour : MonoBehaviour {
         nearbyTiles[_value] = false;
     }
 
-    public void Piew()
+    public void Piew(int _bulletType)
     {
-        if (Array.IndexOf(MapManager.destroyableTileIndexes, index) != -1)
+        if (index == _bulletType)
         {
             MapManager.instance.OnTileDied(this.transform.position, nearbyTiles);
             PoolMaster.Spawn("Particles", "dirtExplosionEffect", this.transform.position);

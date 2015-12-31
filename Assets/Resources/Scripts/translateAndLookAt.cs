@@ -16,6 +16,7 @@ public class translateAndLookAt : MonoBehaviour
     void Awake()
     {
         body = this.GetComponent<Rigidbody2D>();
+        thisCollider = this.GetComponent<CircleCollider2D>();
         if (isBot)
         {
             if ((controller = this.GetComponent<BotMovementController>()) != null)
@@ -29,6 +30,8 @@ public class translateAndLookAt : MonoBehaviour
 
     void Update()
     {
+
+        isColliding = thisCollider.IsTouchingLayers();
         if (!isBot)
         {
             inputAxis = new Vector3(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"), 0);
@@ -54,13 +57,13 @@ public class translateAndLookAt : MonoBehaviour
         transform.rotation = Quaternion.Euler(0f, 0f, rot_z - 90);
     }
 
-    void OnCollisionStay2D(Collision2D col)
-    {
-        isColliding = true;
-    }
+    //void OnCollisionStay2D(Collision2D col)
+    //{
+    //    isColliding = true;
+    //}
 
-    void OnCollisionExit2D(Collision2D col)
-    {
-        isColliding = false;
-    }
+    //void OnCollisionExit2D(Collision2D col)
+    //{
+    //    isColliding = false;
+    //}
 }

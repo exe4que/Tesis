@@ -23,4 +23,9 @@ public class LifeController : MonoBehaviour {
 	{
 		realLife = life / lifeScalar;
 	}
+
+    public void Piew(int _bulletType)
+    {
+        this.takeDamage(GameManager.bulletDamageTable[_bulletType]);
+    }
 }

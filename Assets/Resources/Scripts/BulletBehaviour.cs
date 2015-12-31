@@ -3,7 +3,7 @@ using System.Collections;
 
 public class BulletBehaviour : MonoBehaviour
 {
-
+    int bulletType = 0;
     Vector3 hitPoint, originalPosition, lastPoint;
     RaycastHit2D hit;
     float distance, maxDistance = 5f, velocity = 10f;
@@ -26,7 +26,7 @@ public class BulletBehaviour : MonoBehaviour
             this.gameObject.SetActive(false);
             if (hit.collider != null)
             {
-				hit.collider.GetComponent<TileBehaviour>().Piew();
+				hit.collider.GetComponent<TileBehaviour>().Piew(bulletType);
                 PoolMaster.Spawn("Particles", "bulletEffectPart", this.transform.position, LookAtTarget(GameObject.Find("Player").transform.position));
             }
         }
