@@ -1,13 +1,17 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class LifeController : MonoBehaviour {
+public class LifeController : MonoBehaviour, Idamageable {
 
-	[Range (0, 100)]
-	public float life = 100f;
+    float life;
 	public float lifeScalar = 100f;
-	[HideInInspector]
-	public float realLife = 1f;
+    [Range(0, 1)]
+    public float realLife = 1f;
+
+    void Awake()
+    {
+        life = lifeScalar;
+    }
 
 	public void takeDamage(float value){
 		life -= life - value >= 0 ? value : 0f;

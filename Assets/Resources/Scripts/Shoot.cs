@@ -19,8 +19,10 @@ public class Shoot : MonoBehaviour
 
 	void OnShoot ()
 	{
+        string bulletName;
 		if (Time.time >= lastShootTime + 1 / bulletsPerSecond) {
-			PoolMaster.Spawn ("Projectiles", "Bullet", this.transform.position + this.transform.up * 0.4f, this.transform.rotation);
+            bulletName = isBot ? "EnemyBullet" : "Bullet";
+            PoolMaster.SpawnReference("Projectiles", bulletName, this.transform.position + this.transform.up * 0.4f, this.transform.rotation);
 			lastShootTime = Time.time;
 		}
 	}

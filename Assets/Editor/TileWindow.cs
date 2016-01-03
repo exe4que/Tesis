@@ -54,7 +54,7 @@ public class TileWindow : EditorWindow
     {
 
         isEnabled = true;
-        Editor.CreateInstance(typeof(SceneViewEventHandler));
+        //Editor.CreateInstance(typeof(SceneViewEventHandler));
     }
 
     void OnDestroy()

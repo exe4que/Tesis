@@ -2,7 +2,7 @@
 using System.Collections;
 using System;
 
-public class TileBehaviour : MonoBehaviour {
+public class TileBehaviour : MonoBehaviour, Idamageable {
 
     public int index;
     public bool[] nearbyTiles = new bool[8] { false, false, false, false, false, false, false, false };
