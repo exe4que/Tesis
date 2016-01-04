@@ -12,8 +12,8 @@ public class BotMovementController : MonoBehaviour
 
 	void Awake ()
 	{
-		bot = this.GetComponent<translateAndLookAt> ();
-		botDirection = Vector2.right * (int)Random.Range (-1, 2);
+		this.bot = this.GetComponent<translateAndLookAt> ();
+		this.botDirection = Vector2.right * (int)Random.Range (-1, 2);
 	}
 
 	void Update ()
@@ -24,8 +24,8 @@ public class BotMovementController : MonoBehaviour
 		if (bot.isColliding) {
 			RandomizeDirection ();
 		}
-		if (bot.isBot)
-			bot.inputAxis = botDirection;
+        this.bot.inputAxis = this.botDirection;
+		
 	}
 
 	void RandomizeDirection ()

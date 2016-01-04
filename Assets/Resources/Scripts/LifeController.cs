@@ -8,9 +8,10 @@ public class LifeController : MonoBehaviour, Idamageable {
     [Range(0, 1)]
     public float realLife = 1f;
 
-    void Awake()
+    void OnEnable()
     {
         life = lifeScalar;
+        realLife = 1;
     }
 
 	public void takeDamage(float value){
@@ -26,6 +27,16 @@ public class LifeController : MonoBehaviour, Idamageable {
 	void UpdateRealLife ()
 	{
 		realLife = life / lifeScalar;
+
+        if (realLife == 0)
+        {
+            if (this.tag == "Enemy")
+            {
+                EnemySpawnManager.instance.OnEnemyDied();
+            }
+            this.gameObject.SetActive(false);
+        }
+        
 	}
 
     public void Piew(int _bulletType)

@@ -4,20 +4,32 @@ using UnityEngine.UI;
 
 public class LifeBarController : MonoBehaviour
 {
-	public float YOffset = 0.5f;
-	public Transform target;
-	LifeController lifeController;
-	Slider thisSlider;
+    public float YOffset = 0.5f;
+    public Transform target;
+    LifeController lifeController;
+    Slider thisSlider;
 
-	void Awake ()
-	{
-		lifeController = target.GetComponent<LifeController>();
-		thisSlider = this.GetComponent<Slider>();
-	}
+    void OnEnable()
+    {
+        thisSlider = this.GetComponent<Slider>();
+        lifeController = target.GetComponent<LifeController>();
+        thisSlider.value = lifeController.realLife;
+        Debug.Log("thisSlider.value = " + thisSlider.value);
+    }
 
-	void Update ()
-	{
-		this.transform.position = target.position + Vector3.up * YOffset;
-		thisSlider.value = lifeController.realLife;
-	}
+    void Update()
+    {
+        if (lifeController.realLife == 0)
+        {
+            this.gameObject.SetActive(false);
+        }
+        this.transform.position = target.position + Vector3.up * YOffset;
+        thisSlider.value = lifeController.realLife;
+    }
+
+    public void SetTarget(Transform _target)
+    {
+        target = _target;
+        lifeController = target.GetComponent<LifeController>();
+    }
 }

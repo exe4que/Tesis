@@ -12,17 +12,16 @@ public class translateAndLookAt : MonoBehaviour
     Rigidbody2D body;
     CircleCollider2D thisCollider;
     BotMovementController controller;
+    //public LayerMask whatToCollideWith;
 
     void Awake()
     {
-        body = this.GetComponent<Rigidbody2D>();
-        thisCollider = this.GetComponent<CircleCollider2D>();
+        this.body = this.GetComponent<Rigidbody2D>();
+        this.thisCollider = this.GetComponent<CircleCollider2D>();
         if (isBot)
         {
-            if ((controller = this.GetComponent<BotMovementController>()) != null)
+            if ((controller = this.GetComponent<BotMovementController>()) == null)
             {
-            }
-            else {
                 Debug.LogError("BotMovementController is necessary");
             }
         }
@@ -31,12 +30,13 @@ public class translateAndLookAt : MonoBehaviour
     void Update()
     {
 
-        isColliding = thisCollider.IsTouchingLayers();
+        isColliding = this.thisCollider.IsTouchingLayers();
         if (!isBot)
         {
-            inputAxis = new Vector3(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"), 0);
+            this.inputAxis = new Vector3(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"), 0);
         }
-        else {
+        else
+        {
             if (controller == null)
             {
                 Debug.LogError("BotMovementController is necessary");

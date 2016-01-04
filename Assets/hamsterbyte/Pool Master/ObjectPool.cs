@@ -91,7 +91,7 @@ namespace hamsterbyte.PoolMaster
 																				GameObject g = (GameObject)Instantiate (p.uniquePool [i]);
 																				g.name = g.name.Replace (' ', '_');
 																				g.name = g.name.Split ('(') [0] + " - " + j.ToString ();
-																				g.transform.parent = tObj.transform;
+																				g.transform.SetParent(tObj.transform);
 
 																				//If the prefab contains an AudioSource, check to see that the PooledAudio script is attached to it.
 																				//If it does not already contain a PooledAudio script we will add a new one.
