@@ -33,16 +33,27 @@ public class EnemySpawnManager : MonoBehaviour
         {
             if (currentEnemies < maxEnemiesOnScreen && enemyCont < maxEnemies)
             {
-                Transform enemy = PoolMaster.SpawnReference("Entities", "Enemy", enemyBases[Random.Range(0, enemyBases.Length)].transform.position).transform;
-                GameObject lifeBar = PoolMaster.SpawnReference("Entities", "LifeBar", enemyBases[Random.Range(0, enemyBases.Length)].transform.position);
-                lifeBar.transform.SetParent(foregroundCanvas, false);
-                lifeBar.GetComponent<LifeBarController>().SetTarget(enemy);
+                SpawnBot();
+                lastSpawnTime = Time.time;
                 currentEnemies++;
                 enemyCont++;
-                lastSpawnTime = Time.time;
                 //Debug.Log("currentEnemies, maxEnemiesOnScreen = (" + currentEnemies + ", " + maxEnemiesOnScreen + ")");
             }
         }
+    }
+
+    private void SpawnBot()
+    {
+        StartCoroutine(SpawnDelayed(1f));
+    }
+
+    IEnumerator SpawnDelayed(float i)
+    {
+        yield return new WaitForSeconds(i);
+        Transform enemy = PoolMaster.SpawnReference("Entities", "Enemy", enemyBases[Random.Range(0, enemyBases.Length)].transform.position).transform;
+        GameObject lifeBar = PoolMaster.SpawnReference("Entities", "LifeBar", enemyBases[Random.Range(0, enemyBases.Length)].transform.position);
+        lifeBar.transform.SetParent(foregroundCanvas, false);
+        lifeBar.GetComponent<LifeBarController>().SetTarget(enemy);
     }
 
     public void OnEnemyDied()

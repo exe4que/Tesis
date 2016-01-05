@@ -14,14 +14,14 @@ public class LifeBarController : MonoBehaviour
         thisSlider = this.GetComponent<Slider>();
         lifeController = target.GetComponent<LifeController>();
         thisSlider.value = lifeController.realLife;
-        Debug.Log("thisSlider.value = " + thisSlider.value);
+        //Debug.Log("thisSlider.value = " + thisSlider.value);
     }
 
     void Update()
     {
-        if (lifeController.realLife == 0)
+        if (!this.target.gameObject.activeSelf)
         {
-            this.gameObject.SetActive(false);
+            PoolMaster.Despawn(this.gameObject);
         }
         this.transform.position = target.position + Vector3.up * YOffset;
         thisSlider.value = lifeController.realLife;
