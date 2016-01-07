@@ -13,7 +13,7 @@ public class MapManager : MonoBehaviour
     GameObject[] tileArray;
     private static Vector2 gridSize = new Vector2(0.32f, 0.32f);
 
-    public static MapManager _instance;
+    private static MapManager _instance;
 
     public static MapManager instance
     {

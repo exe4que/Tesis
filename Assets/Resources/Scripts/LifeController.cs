@@ -36,7 +36,6 @@ public class LifeController : MonoBehaviour, Idamageable {
             }
             this.gameObject.SetActive(false);
         }
-        
 	}
 
     public void Piew(int _bulletType)

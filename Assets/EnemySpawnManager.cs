@@ -4,13 +4,13 @@ using System.Collections;
 public class EnemySpawnManager : MonoBehaviour
 {
 
-    public int maxEnemies = 20, maxEnemiesOnScreen = 5;
+    private int _maxEnemies = 20, _maxEnemiesOnScreen = 5;
     float spawningDelay = 1f, lastSpawnTime = 0f;
     int currentEnemies = 0, enemyCont = 0;
     GameObject[] enemyBases;
     Transform foregroundCanvas;
 
-    public static EnemySpawnManager _instance;
+    private static EnemySpawnManager _instance;
 
     public static EnemySpawnManager instance
     {
@@ -61,4 +61,31 @@ public class EnemySpawnManager : MonoBehaviour
         currentEnemies--;
     }
 
+    /*
+     * propiedades
+     */
+
+    public int maxEnemies
+    {
+        get
+        {
+            return _maxEnemies;
+        }
+        set
+        {
+            _maxEnemies = value;
+        }
+    }
+
+    public int maxEnemiesOnScreen
+    {
+        get
+        {
+            return _maxEnemiesOnScreen;
+        }
+        set
+        {
+            _maxEnemiesOnScreen = value;
+        }
+    }
 }

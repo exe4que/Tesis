@@ -5,12 +5,13 @@ public class BulletBehaviour : MonoBehaviour
 {
     public int bulletType = 0;
     public float velocity = 10f;
-    Vector3 hitPoint, lastPoint;
+    Vector3 hitPoint, initPoint, lastPoint;
     RaycastHit2D hit;
     float distance, maxDistance = 5f;
     public LayerMask whatToHit;
     void OnEnable()
     {
+        initPoint = this.transform.position;
         lastPoint = this.transform.position + this.transform.up * maxDistance;
         PerformLinecast();
     }
@@ -39,7 +40,7 @@ public class BulletBehaviour : MonoBehaviour
             if (hit.collider != null)
             {
                 hit.collider.GetComponent<Idamageable>().Piew(bulletType);
-                PoolMaster.Spawn("Particles", "bulletEffectPart", this.transform.position, LookAtTarget(GameObject.Find("Player").transform.position));
+                PoolMaster.Spawn("Particles", "bulletEffectPart", this.transform.position, LookAtTarget(initPoint));
             }
         }
     }
