@@ -9,7 +9,7 @@ public class TileBehaviour : MonoBehaviour, Idamageable {
 
     void Start()
     {
-        this.GetComponent<SpriteRenderer>().sprite = MapManager.instance.AssignSpriteToTileType(nearbyTiles, index);
+       this.GetComponent<SpriteRenderer>().sprite = MapManager.instance.AssignSpriteToTileType(nearbyTiles, index);
     }
 
     public void AddNearbyTile(int _value)
