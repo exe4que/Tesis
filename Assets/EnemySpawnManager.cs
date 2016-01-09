@@ -31,7 +31,7 @@ public class EnemySpawnManager : MonoBehaviour
     {
         if (Time.time >= lastSpawnTime + spawningDelay)
         {
-            if ((currentEnemies < maxEnemiesOnScreen && enemyCont < maxEnemies) && enemyBases != null)
+            if ((currentEnemies < maxEnemiesOnScreen && enemyCont < maxEnemies) && enemyBases.Length > 0)
             {
                 SpawnBot();
                 lastSpawnTime = Time.time;
