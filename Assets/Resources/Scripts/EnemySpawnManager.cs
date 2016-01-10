@@ -4,7 +4,7 @@ using System.Collections;
 public class EnemySpawnManager : MonoBehaviour
 {
 
-    private int _maxEnemies = 20, _maxEnemiesOnScreen = 5;
+    public int _maxEnemies = 20, _maxEnemiesOnScreen = 5;
     float spawningDelay = 1f, lastSpawnTime = 0f;
     int currentEnemies = 0, enemyCont = 0;
     GameObject[] enemyBases;

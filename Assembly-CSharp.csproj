@@ -45,20 +45,24 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\EnemySpawnManager.cs" />
+     <Compile Include="Assets\Resources\Scripts\Animator.cs" />
      <Compile Include="Assets\Resources\Scripts\BotAimingAndShootingController.cs" />
      <Compile Include="Assets\Resources\Scripts\BotMovementController.cs" />
      <Compile Include="Assets\Resources\Scripts\BulletBehaviour.cs" />
      <Compile Include="Assets\Resources\Scripts\BulletFormBehaviour.cs" />
      <Compile Include="Assets\Resources\Scripts\CameraFollow.cs" />
      <Compile Include="Assets\Resources\Scripts\DamageTest.cs" />
+     <Compile Include="Assets\Resources\Scripts\EnemyBaseDeathController.cs" />
+     <Compile Include="Assets\Resources\Scripts\EnemyDeathController.cs" />
+     <Compile Include="Assets\Resources\Scripts\EnemySpawnManager.cs" />
      <Compile Include="Assets\Resources\Scripts\GameManager.cs" />
      <Compile Include="Assets\Resources\Scripts\HealTest.cs" />
-     <Compile Include="Assets\Resources\Scripts\IDamageable.cs" />
+     <Compile Include="Assets\Resources\Scripts\Interfaces.cs" />
      <Compile Include="Assets\Resources\Scripts\LifeBarController.cs" />
      <Compile Include="Assets\Resources\Scripts\LifeController.cs" />
      <Compile Include="Assets\Resources\Scripts\LookAt.cs" />
      <Compile Include="Assets\Resources\Scripts\MapManager.cs" />
+     <Compile Include="Assets\Resources\Scripts\PlayerDeathController.cs" />
      <Compile Include="Assets\Resources\Scripts\PooledParticleBehaviour.cs" />
      <Compile Include="Assets\Resources\Scripts\Shoot.cs" />
      <Compile Include="Assets\Resources\Scripts\TileBehaviour.cs" />

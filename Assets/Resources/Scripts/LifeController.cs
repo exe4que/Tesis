@@ -30,11 +30,7 @@ public class LifeController : MonoBehaviour, Idamageable {
 
         if (realLife == 0)
         {
-            if (this.tag == "Enemy")
-            {
-                EnemySpawnManager.instance.OnEnemyDied();
-            }
-            this.gameObject.SetActive(false);
+            this.GetComponent<IDestroyable>().OnDeath();
         }
 	}
 
