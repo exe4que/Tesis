@@ -10,7 +10,14 @@ public interface IDestroyable
 
 public interface IAnimable
 {
-    void SetBool(bool _value);
-    void SetFloat(float _value);
-    void SetInt(int _value);
+    void SetBool(string _param, bool _value);
+    void SetFloat(string _param, float _value);
+    void SetInt(string _param, int _value);
+}
+
+public interface IAnimable2
+{
+    void SetBool(string _param, bool _value);
+    void SetFloat(string _param, float _value);
+    void SetInt(string _param, int _value);
 }
