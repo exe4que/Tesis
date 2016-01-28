@@ -71,6 +71,7 @@
      <Compile Include="Assets\Resources\Scripts\TileWindow.cs" />
      <Compile Include="Assets\Resources\Scripts\Vector3ExtensionMethods.cs" />
      <Compile Include="Assets\Resources\Scripts\translateAndLookAt.cs" />
+     <Compile Include="Assets\TileParticlesEffect.cs" />
      <Compile Include="Assets\hamsterbyte\Pool Master\ObjectPool.cs" />
      <Compile Include="Assets\hamsterbyte\Pool Master\Pool.cs" />
      <Compile Include="Assets\hamsterbyte\Pool Master\PoolMaster.cs" />

@@ -276,7 +276,7 @@ public class TileWindow : EditorWindow
         {
             TileBehaviour all, newby;
             all = allgo[i].GetComponent<TileBehaviour>();
-                if (all.index == (newby = newgo.GetComponent<TileBehaviour>()).index)
+                if (all.index == (newby = newgo.GetComponent<TileBehaviour>()).index && allgo[i].transform.position.z == newgo.transform.position.z)
                 {
                     newby.nearbyTiles[newPositionChange] = isAddition;
                     all.nearbyTiles[allPositionChange] = isAddition;
