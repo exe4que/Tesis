@@ -33,10 +33,13 @@ public class EnemySpawnerBehaviour : MonoBehaviour {
     IEnumerator SpawnDelayed(float i)
     {
         yield return new WaitForSeconds(i);
-        Transform enemy = PoolMaster.SpawnReference("Entities", "Enemy", this.transform.position).transform;
-        GameObject lifeBar = PoolMaster.SpawnReference("Entities", "LifeBar", enemy.position);
+        Transform enemy = PoolMaster.SpawnReference("Enemies", "Enemy", this.transform.position).transform;
+        GameObject lifeBar = PoolMaster.SpawnReference("UI", "LifeBar", enemy.position);
+        GameObject indicator = PoolMaster.SpawnReference("UI", "Indicator", enemy.position);
         lifeBar.transform.SetParent(foregroundCanvas, false);
+        indicator.GetComponent<EnemyOffscreenIndicator>().goToTrack = enemy;
         lifeBar.GetComponent<LifeBarController>().SetTarget(enemy);
+        indicator.transform.SetParent(foregroundCanvas, false);
     }
 
 }

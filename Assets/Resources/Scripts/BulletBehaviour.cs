@@ -7,7 +7,7 @@ public class BulletBehaviour : MonoBehaviour
     public float velocity = 10f;
     Vector3 hitPoint, initPoint, lastPoint;
     RaycastHit2D hit;
-    float distance, maxDistance = 5f;
+    float distance, maxDistance = 15f;
     public LayerMask whatToHit;
     void OnEnable()
     {
@@ -29,6 +29,7 @@ public class BulletBehaviour : MonoBehaviour
         
         PerformLinecast();
         CheckColision(0.1f);
+        AdjustScale();
         transform.Translate(Vector3.up * velocity * Time.deltaTime);
     }
 
@@ -54,5 +55,14 @@ public class BulletBehaviour : MonoBehaviour
         Quaternion rot = Quaternion.Euler(rot_x - 90f, 90f, 0);
 
         return rot;
+    }
+
+    float allDistance = -1;
+    private void AdjustScale()
+    {
+        this.allDistance = allDistance == -1 ? Vector3.Distance(this.initPoint, this.lastPoint) : allDistance;
+        float currentDistance = Vector3.Distance(this.transform.position, lastPoint);
+        float scale = currentDistance / this.allDistance;
+        this.transform.localScale = new Vector3(scale, scale, 1);
     }
 }

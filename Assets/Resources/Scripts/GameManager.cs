@@ -31,6 +31,7 @@ public class GameManager : MonoBehaviour
         this.enemyBasesIndicators = GameObject.Find("MainCanvas/BasesPanel").GetComponentsInChildren<Image>();
         this.clockText = GameObject.Find("MainCanvas/TimeLeftText/ClockText").GetComponent<Text>();
         this.clockText.text = FormatTime(this.roundTime);
+        EnemySpawnManager.instance.enemyBases = enemyBases.Length;
         _instance = this;
     }
 

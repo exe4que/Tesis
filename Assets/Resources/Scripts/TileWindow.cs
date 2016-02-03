@@ -105,14 +105,12 @@ public class TileWindow : EditorWindow
             {
                 if (isDraw)
                 {
-                    Debug.Log("click");
                     Event e = Event.current;
                     if (selected != DRAWOPTION.select)
                     {
                         HandleUtility.AddDefaultControl(GUIUtility.GetControlID(FocusType.Passive));
                         if ((e.type == EventType.MouseDrag || e.type == EventType.MouseDown) && e.button == 0 && activeSprite != null)
                         {
-                            Debug.Log("click");
                             Vector2 mousePos = Event.current.mousePosition;
                             mousePos.y = SceneView.currentDrawingSceneView.camera.pixelHeight - mousePos.y;
                             Vector3 mouseWorldPos = SceneView.currentDrawingSceneView.camera.ScreenPointToRay(mousePos).origin;
