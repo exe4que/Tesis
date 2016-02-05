@@ -8,10 +8,13 @@ public class LifeController : MonoBehaviour, Idamageable {
     [Range(0, 1)]
     public float realLife = 1f;
 
+    IAnimable animator;
+
     void OnEnable()
     {
         life = lifeScalar;
         realLife = 1;
+        animator = this.GetComponent<IAnimable>();
     }
 
 	public void takeDamage(float value){
@@ -36,6 +39,10 @@ public class LifeController : MonoBehaviour, Idamageable {
 
     public void Piew(int _bulletType)
     {
+        if (animator != null)
+        {
+            this.animator.SetBool("isFlashing", true);
+        }
         this.takeDamage(GameManager.bulletDamageTable[_bulletType]);
     }
 }

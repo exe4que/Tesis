@@ -45,7 +45,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\EnemyOffscreenIndicator.cs" />
+     <Compile Include="Assets\FlashEffect.cs" />
      <Compile Include="Assets\Resources\Scripts\AnimatorInterface.cs" />
      <Compile Include="Assets\Resources\Scripts\BaseIconAnimator.cs" />
      <Compile Include="Assets\Resources\Scripts\BotAimingAndShootingController.cs" />
@@ -56,6 +56,7 @@
      <Compile Include="Assets\Resources\Scripts\DamageTest.cs" />
      <Compile Include="Assets\Resources\Scripts\EnemyBaseDeathController.cs" />
      <Compile Include="Assets\Resources\Scripts\EnemyDeathController.cs" />
+     <Compile Include="Assets\Resources\Scripts\EnemyOffscreenIndicator.cs" />
      <Compile Include="Assets\Resources\Scripts\EnemySpawnManager.cs" />
      <Compile Include="Assets\Resources\Scripts\EnemySpawnerBehaviour.cs" />
      <Compile Include="Assets\Resources\Scripts\GameManager.cs" />
@@ -67,12 +68,16 @@
      <Compile Include="Assets\Resources\Scripts\MapManager.cs" />
      <Compile Include="Assets\Resources\Scripts\PlayerDeathController.cs" />
      <Compile Include="Assets\Resources\Scripts\PooledParticleBehaviour.cs" />
+     <Compile Include="Assets\Resources\Scripts\PowerUp.cs" />
      <Compile Include="Assets\Resources\Scripts\Shoot.cs" />
      <Compile Include="Assets\Resources\Scripts\TileBehaviour.cs" />
+     <Compile Include="Assets\Resources\Scripts\TileParticlesEffect.cs" />
      <Compile Include="Assets\Resources\Scripts\TileWindow.cs" />
      <Compile Include="Assets\Resources\Scripts\Vector3ExtensionMethods.cs" />
+     <Compile Include="Assets\Resources\Scripts\Weapon_Laser.cs" />
+     <Compile Include="Assets\Resources\Scripts\Weapon_Simple.cs" />
+     <Compile Include="Assets\Resources\Scripts\Weapon_TripleGun.cs" />
      <Compile Include="Assets\Resources\Scripts\translateAndLookAt.cs" />
-     <Compile Include="Assets\TileParticlesEffect.cs" />
      <Compile Include="Assets\hamsterbyte\Pool Master\ObjectPool.cs" />
      <Compile Include="Assets\hamsterbyte\Pool Master\Pool.cs" />
      <Compile Include="Assets\hamsterbyte\Pool Master\PoolMaster.cs" />
@@ -81,6 +86,7 @@
      <None Include="Assets\hamsterbyte\Pool Master\README.txt" />
      <None Include="Assets\Standard Assets\Fonts\OpenSans\License!.txt" />
      <None Include="Assets\Standard Assets\CrossPlatformInput\CrossPlatformInputGuidelines.txt" />
+     <None Include="Assets\Resources\DefaultColorFlash.shader" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>

@@ -1,4 +1,5 @@
-﻿public interface Idamageable
+﻿using UnityEngine;
+public interface Idamageable
 {
     void Piew(int _bulletType);
 }
@@ -6,6 +7,16 @@
 public interface IDestroyable
 {
     void OnDeath();
+}
+
+public interface IFireable
+{
+    void OnShoot(LayerMask _validTarget, bool isBot);
+}
+
+public interface IBullet
+{
+    void SetValidTarget(LayerMask _validTarget);
 }
 
 public interface IAnimable

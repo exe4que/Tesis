@@ -24,7 +24,7 @@ public class TileBehaviour : MonoBehaviour, Idamageable {
 
     public void Piew(int _bulletType)
     {
-        if (index == _bulletType)
+        if (_bulletType >= index)
         {
             MapManager.instance.OnTileDied(this.transform.position, nearbyTiles);
             PoolMaster.Spawn("Particles", "dirtExplosionEffect", this.transform.position);

@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class BulletBehaviour : MonoBehaviour
+public class BulletBehaviour : MonoBehaviour, IBullet
 {
     public int bulletType = 0;
     public float velocity = 10f;
@@ -33,6 +33,7 @@ public class BulletBehaviour : MonoBehaviour
         transform.Translate(Vector3.up * velocity * Time.deltaTime);
     }
 
+    
     private void CheckColision(float _tolerance)
     {
         if (distance <= _tolerance)
@@ -64,5 +65,10 @@ public class BulletBehaviour : MonoBehaviour
         float currentDistance = Vector3.Distance(this.transform.position, lastPoint);
         float scale = currentDistance / this.allDistance;
         this.transform.localScale = new Vector3(scale, scale, 1);
+    }
+
+    public void SetValidTarget(LayerMask _validTarget)
+    {
+        whatToHit = _validTarget;
     }
 }

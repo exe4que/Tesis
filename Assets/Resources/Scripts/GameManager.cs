@@ -13,6 +13,15 @@ public class GameManager : MonoBehaviour
     private Text clockText;
     public float roundTime = 180f;
     public int activeBases = 6;
+    public LayerMask playerMask, botMask;
+    private UnityEngine.Object[] _weaponsList;
+
+
+    public UnityEngine.Object[] weaponsList
+    {
+        get { return _weaponsList; }
+        set { _weaponsList = value; }
+    }
     
 
     private static GameManager _instance;
@@ -27,11 +36,14 @@ public class GameManager : MonoBehaviour
 
     void Awake()
     {
+        Application.targetFrameRate = 60;
         this.enemyBases = GameObject.FindGameObjectsWithTag("EnemyBase");
         this.enemyBasesIndicators = GameObject.Find("MainCanvas/BasesPanel").GetComponentsInChildren<Image>();
         this.clockText = GameObject.Find("MainCanvas/TimeLeftText/ClockText").GetComponent<Text>();
         this.clockText.text = FormatTime(this.roundTime);
         EnemySpawnManager.instance.enemyBases = enemyBases.Length;
+        weaponsList = new GameObject[(Resources.LoadAll("Prefabs/Weapons").Length)];
+        weaponsList = Resources.LoadAll("Prefabs/Weapons");
         _instance = this;
     }
 

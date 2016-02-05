@@ -4,26 +4,45 @@ using System.Collections;
 public class Shoot : MonoBehaviour
 {
 	public bool isBot, fireButton;
-	public float bulletsPerSecond = 20;
-	float lastShootTime = 0;
+    public GameObject activeWeapon;
+
+    void Start()
+    {
+        AssignWeapon(0);
+    }
+
+    private void AssignWeapon(int _weaponID)
+    {
+        activeWeapon = Instantiate(GameManager.instance.weaponsList[_weaponID], this.transform.position, this.transform.rotation) as GameObject;
+        activeWeapon.transform.SetParent(this.transform);
+    }
 
 	void Update ()
 	{
-		if (!isBot) {
-			fireButton = Input.GetButton("Fire1");
-		}
+        if (!isBot)
+        {
+            fireButton = Input.GetButton("Fire1");
+        }
 		if (fireButton) {
-			OnShoot();
+            if (isBot)
+            {
+                OnShoot(GameManager.instance.botMask);
+            }
+            else
+            {
+                OnShoot(GameManager.instance.playerMask);
+            }
 		}
 	}
 
-	void OnShoot ()
+	void OnShoot (LayerMask _validTarget)
 	{
-        string bulletName;
-		if (Time.time >= lastShootTime + 1 / bulletsPerSecond) {
-            bulletName = isBot ? "EnemyBullet" : "Bullet";
-            PoolMaster.SpawnReference("Projectiles", bulletName, this.transform.position + this.transform.up * 0.4f, this.transform.rotation);
-			lastShootTime = Time.time;
-		}
+        activeWeapon.GetComponent<IFireable>().OnShoot(_validTarget, isBot);
 	}
+
+    public void PickUpWeapon(int _index)
+    {
+        Destroy(this.transform.GetChild(0).gameObject);
+        AssignWeapon(_index);
+    }
 }
