@@ -28,6 +28,7 @@ public class TileBehaviour : MonoBehaviour, Idamageable {
         {
             MapManager.instance.OnTileDied(this.transform.position, nearbyTiles);
             PoolMaster.Spawn("Particles", "dirtExplosionEffect", this.transform.position);
+            AudioManager.instance.PlaySound("DirtExplosion");
             this.gameObject.SetActive(false);
         }
         //this.gameObject.SetActive(false);

@@ -9,7 +9,10 @@ public class FlashEffect : MonoBehaviour, IAnimable2 {
     void Awake()
     {
         thisRenderer = this.GetComponent<SpriteRenderer>();
-        ChildRenderer = this.transform.GetChild(0).GetComponent<SpriteRenderer>();
+        if (this.transform.childCount != 0)
+        {
+            ChildRenderer = this.transform.GetChild(0).GetComponent<SpriteRenderer>();
+        }
     }
 
     public void SetBool(string _param, bool _value)
@@ -32,7 +35,10 @@ public class FlashEffect : MonoBehaviour, IAnimable2 {
         if (_value)
         {
             thisRenderer.material = flashMaterial;
-            ChildRenderer.material = flashMaterial;
+            if (ChildRenderer != null)
+            {
+                ChildRenderer.material = flashMaterial;
+            }
             Invoke("Restore", 0.2f);
         }
     }
@@ -40,6 +46,7 @@ public class FlashEffect : MonoBehaviour, IAnimable2 {
     private void Restore()
     {
         thisRenderer.material = defaultMaterial;
+        if (ChildRenderer != null)
         ChildRenderer.material = defaultMaterial;
     }
 }

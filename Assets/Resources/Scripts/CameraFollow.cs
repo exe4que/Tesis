@@ -3,10 +3,22 @@ using System.Collections;
 
 public class CameraFollow : MonoBehaviour {
 
-    public Transform targetObject;
+    public Vector2 velocity;
+    public float smoothTimeY;
+    public float smoothTimeX;
 
-	void Update () {
-        if(targetObject != null)
-        this.transform.position = new Vector3(targetObject.position.x, targetObject.position.y, this.transform.position.z);
-	}
+    public GameObject target;
+
+    void FixedUpdate()
+    {
+
+
+        float posX = Mathf.SmoothDamp(transform.position.x, target.transform.position.x, ref velocity.x, smoothTimeX);
+        float posY = Mathf.SmoothDamp(transform.position.y, target.transform.position.y, ref velocity.y, smoothTimeY);
+
+        transform.position = new Vector3(posX, posY, transform.position.z);
+
+    }
+
+
 }

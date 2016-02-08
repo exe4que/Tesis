@@ -10,11 +10,8 @@ public class LookAt : MonoBehaviour
 	void Update ()
 	{
 		if (!isBot) {
-			if (followMouse) {
-				targetPosition = Camera.main.ScreenToWorldPoint (Input.mousePosition);
-			} else {
-				targetPosition = targetObject.position;
-			}
+            targetPosition = InputManager.instance.GetFireVector();
+            targetPosition += InputManager.instance.touchInput ? this.transform.position : Vector3.zero;
 		}
 		LookAtTarget (targetPosition);
 	}

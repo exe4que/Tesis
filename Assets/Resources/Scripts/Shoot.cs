@@ -21,7 +21,7 @@ public class Shoot : MonoBehaviour
 	{
         if (!isBot)
         {
-            fireButton = Input.GetButton("Fire1");
+            fireButton = InputManager.instance.GetButton("Fire1");
         }
 		if (fireButton) {
             if (isBot)

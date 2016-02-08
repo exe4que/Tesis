@@ -22,6 +22,7 @@ public class Weapon_TripleGun : MonoBehaviour, IFireable {
         if (Time.time >= lastShootTime + 1f / fireRate)
         {
             GameObject _bullet = PoolMaster.SpawnReference("Projectiles", bulletName, this.transform.position + this.transform.up * 0.4f, this.transform.rotation);
+            AudioManager.instance.PlaySound("Shoot");
             _bullet.GetComponent<IBullet>().SetValidTarget(_validTarget);
             _bullet = PoolMaster.SpawnReference("Projectiles", bulletName, this.transform.position + this.transform.up * 0.4f + this.transform.right * bulletTraceSpacing, this.transform.rotation * Quaternion.Euler(0, 0, -bulletTraceAngle));
             _bullet.GetComponent<IBullet>().SetValidTarget(_validTarget);

@@ -33,7 +33,7 @@ public class translateAndLookAt : MonoBehaviour
         isColliding = this.thisCollider.IsTouchingLayers();
         if (!isBot)
         {
-            this.inputAxis = new Vector3(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"), 0);
+            this.inputAxis = new Vector3(InputManager.instance.GetAxis("Horizontal"), InputManager.instance.GetAxis("Vertical"), 0);
         }
         else
         {

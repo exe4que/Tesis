@@ -14,6 +14,7 @@ public class Weapon_Simple : MonoBehaviour, IFireable {
         bulletName = _isBot ? "EnemyBullet" : "Bullet";
         if (Time.time >= lastShootTime + 1f / fireRate) {
             GameObject _bullet = PoolMaster.SpawnReference("Projectiles", bulletName, this.transform.position + this.transform.up * 0.4f, this.transform.rotation);
+            AudioManager.instance.PlaySound("Shoot");
             _bullet.GetComponent<IBullet>().SetValidTarget(_validTarget);
             lastShootTime = Time.time;
         }
