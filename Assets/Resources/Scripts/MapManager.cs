@@ -8,7 +8,7 @@ public class MapManager : MonoBehaviour
 
 
     Sprite[][] spriteArray;
-    string[] files;
+    Texture[] files;
     GameObject[] tileArray;
     private static Vector2 gridSize = new Vector2(0.32f, 0.32f);
 
@@ -21,18 +21,19 @@ public class MapManager : MonoBehaviour
     // Use this for initialization
     void Awake()
     {
-        this.files = Directory.GetFiles(Application.dataPath + "/Resources/Tilemaps/", "*.png");
+        //this.files = Directory.GetFiles(Application.dataPath + "/Resources/Tilemaps/", "*.png");
+        this.files = Resources.LoadAll<Texture>("Tilemaps");
         this.spriteArray = new Sprite[files.Length][];
         this.tileArray = GameObject.FindGameObjectsWithTag("Tile") as GameObject[];
 
         Sprite[] auxArray = Resources.LoadAll<Sprite>("Tilemaps");
         for (int i = 0; i < files.Length; i++)
         {
-            this.files[i] = files[i].Replace(Application.dataPath + "/Resources/Tilemaps/", "");
-            this.files[i] = files[i].Replace(".png", "");
+            //this.files[i] = files[i].Replace(Application.dataPath + "/Resources/Tilemaps/", "");
+            //this.files[i] = files[i].Replace(".png", "");
             //this.spriteArray[i] = AssetDatabase.LoadAllAssetsAtPath("Assets/Tilemaps/" + files[i]).Select(x => x as Sprite).Where(x => x != null).ToArray();
             //Debug.Log("files[i] = " + files[i] + ", " + auxArray[0].name);
-            this.spriteArray[i] = auxArray.Select(x => x as Sprite).Where(x => x.name.StartsWith(files[i])).ToArray();
+            this.spriteArray[i] = auxArray.Select(x => x as Sprite).Where(x => x.name.StartsWith(files[i].name)).ToArray();
         }
         _instance = this;
     }

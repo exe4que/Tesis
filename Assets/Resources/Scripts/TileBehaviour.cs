@@ -31,6 +31,5 @@ public class TileBehaviour : MonoBehaviour, Idamageable {
             AudioManager.instance.PlaySound("DirtExplosion");
             this.gameObject.SetActive(false);
         }
-        //this.gameObject.SetActive(false);
     }
 }

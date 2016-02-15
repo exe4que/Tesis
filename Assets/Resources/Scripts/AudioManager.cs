@@ -17,7 +17,7 @@ public class Sound
     [Range(0f, 0.5f)]
     public float randomPitch = 0.1f;
 
-    public bool loop = false, playOnAwake = false;
+    public bool loop = false, playOnAwake = false, isMusic = false;
 
     [Range(1, 10)]
     public int players = 1;
@@ -29,7 +29,13 @@ public class Sound
         _sources[_index] = _source;
         _sources[_index].clip = clip;
         _sources[_index].loop = loop;
-        if (playOnAwake) this.Play();
+        if (playOnAwake)
+        {
+            if ((this.isMusic && (PlayerPrefs.GetInt("Music") == 1)) || (!this.isMusic && (PlayerPrefs.GetInt("Sound") == 1)))
+            {
+                this.Play();
+            }
+        }
     }
 
     public void Play()
@@ -65,6 +71,7 @@ public class AudioManager : MonoBehaviour
 
     [SerializeField]
     Sound[] sounds;
+    Sound music;
 
     void Awake()
     {
@@ -82,6 +89,7 @@ public class AudioManager : MonoBehaviour
     {
         for (int i = 0; i < sounds.Length; i++)
         {
+            if (sounds[i].isMusic) music = sounds[i];
             sounds[i].sources = new AudioSource[sounds[i].players];
             for (int j = 0; j < sounds[i].sources.Length; j++)
             {
@@ -99,13 +107,25 @@ public class AudioManager : MonoBehaviour
         {
             if (sounds[i].name == _name)
             {
-                sounds[i].Play();
-                return;
+                if ((sounds[i].isMusic && (PlayerPrefs.GetInt("Music") == 1)) || (!sounds[i].isMusic && (PlayerPrefs.GetInt("Sound") == 1)))
+                {
+                    sounds[i].Play();
+                    return;
+                }
             }
         }
+    }
 
-        // no sound with _name
-        Debug.LogWarning("AudioManager: Sound not found in list, " + _name);
+    public void ToogleMusic()
+    {
+        if (music.sources[0].isPlaying)
+        {
+            music.sources[0].Pause();
+        }
+        else
+        {
+            music.sources[0].Play();
+        }
     }
 
 }

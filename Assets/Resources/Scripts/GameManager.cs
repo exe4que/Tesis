@@ -13,8 +13,19 @@ public class GameManager : MonoBehaviour
     private Text clockText;
     public float roundTime = 180f;
     public int activeBases = 6;
+    public GameObject pauseMenu;
     public LayerMask playerMask, botMask;
     private UnityEngine.Object[] _weaponsList;
+
+    private int _score;
+
+    public int score
+    {
+        get { return _score; }
+        set { _score = value; }
+    }
+    
+
 
 
     public UnityEngine.Object[] weaponsList
@@ -36,7 +47,7 @@ public class GameManager : MonoBehaviour
 
     void Awake()
     {
-        Application.targetFrameRate = 60;
+        //Application.targetFrameRate = 60;
         this.enemyBases = GameObject.FindGameObjectsWithTag("EnemyBase");
         this.enemyBasesIndicators = GameObject.Find("MainCanvas/BasesPanel").GetComponentsInChildren<Image>();
         this.clockText = GameObject.Find("MainCanvas/TimeLeftText/ClockText").GetComponent<Text>();
@@ -66,6 +77,7 @@ public class GameManager : MonoBehaviour
             if (enemyBases[i].GetInstanceID() == _instanceId)
             {
                 enemyBasesIndicators[i].GetComponent<IAnimable>().SetBool("TurningOff", true);
+                _score += 30;
                 activeBases--;
             }
         }
@@ -86,6 +98,11 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    public void AddPoints(int _value = 10)
+    {
+        _score += _value;
+    }
+
     string FormatTime(float _seconds)
     {
         TimeSpan t = TimeSpan.FromSeconds(_seconds);
@@ -94,6 +111,24 @@ public class GameManager : MonoBehaviour
                         t.Minutes,
                         t.Seconds);
         return ret;
+    }
+
+    public void Pause()
+    {
+        Time.timeScale = 0;
+        pauseMenu.SetActive(true);
+    }
+
+    public void Resume()
+    {
+        Time.timeScale = 1;
+        pauseMenu.SetActive(false);
+    }
+
+    public void LoadMainMenu()
+    {
+        Time.timeScale = 1;
+        Application.LoadLevel(0);
     }
 
 }

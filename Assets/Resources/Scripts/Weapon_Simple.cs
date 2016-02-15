@@ -3,7 +3,7 @@ using System.Collections;
 
 public class Weapon_Simple : MonoBehaviour, IFireable {
     [Range(0f, 50f)]
-    public int fireRatePlayer= 12, fireRateBot = 5;
+    public int fireRatePlayer= 12, fireRateBot = 3;
     private float lastShootTime = 0;
     private int fireRate;
     private string bulletName;

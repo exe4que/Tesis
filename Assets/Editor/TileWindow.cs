@@ -140,6 +140,8 @@ public class TileWindow : EditorWindow
                                 {
                                     activeSprite = allSprites[0];
                                     GameObject newgo = (GameObject)Instantiate(tileObj, mouseWorldPos, new Quaternion());
+                                    //GameObject newgo = (GameObject)PrefabUtility.InstantiatePrefab(tileObj);
+                                    //newgo.transform.position = mouseWorldPos;
                                     newgo.GetComponent<SpriteRenderer>().sprite = activeSprite;
                                     newgo.GetComponent<TileBehaviour>().index = index;
                                     newgo.name = "Tile";
