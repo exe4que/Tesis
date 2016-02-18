@@ -14,6 +14,7 @@ public class WarperBehaviour : MonoBehaviour {
 	void OnTriggerEnter2D(Collider2D col)
     {
         LevelWarpManager.instance.SelectLevel(levelToWarp);
+        AudioManager.instance.PlaySound("Select");
     }
 
     void OnTriggerExit2D(Collider2D col)

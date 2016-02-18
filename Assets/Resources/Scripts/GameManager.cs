@@ -2,18 +2,19 @@
 using System.Collections;
 using UnityEngine.UI;
 using System;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
     [HideInInspector]
-    public static float[] bulletDamageTable = new float[] { 5f, 10f, 15f };
+    public static float[] bulletDamageTable = new float[] { 5f, 1f, 15f };
 
     private GameObject[] enemyBases;
     private Image[] enemyBasesIndicators;
     private Text clockText;
     public float roundTime = 180f;
     public int activeBases = 6;
-    public GameObject pauseMenu;
+    public GameObject pauseMenu, gameOver, levelComplete;
     public LayerMask playerMask, botMask;
     private UnityEngine.Object[] _weaponsList;
 
@@ -24,7 +25,7 @@ public class GameManager : MonoBehaviour
         get { return _score; }
         set { _score = value; }
     }
-    
+
 
 
 
@@ -33,7 +34,7 @@ public class GameManager : MonoBehaviour
         get { return _weaponsList; }
         set { _weaponsList = value; }
     }
-    
+
 
     private static GameManager _instance;
 
@@ -47,27 +48,60 @@ public class GameManager : MonoBehaviour
 
     void Awake()
     {
-        //Application.targetFrameRate = 60;
-        this.enemyBases = GameObject.FindGameObjectsWithTag("EnemyBase");
-        this.enemyBasesIndicators = GameObject.Find("MainCanvas/BasesPanel").GetComponentsInChildren<Image>();
-        this.clockText = GameObject.Find("MainCanvas/TimeLeftText/ClockText").GetComponent<Text>();
-        this.clockText.text = FormatTime(this.roundTime);
-        EnemySpawnManager.instance.enemyBases = enemyBases.Length;
+        Application.targetFrameRate = -1;
+        Time.timeScale = 1f;
+        if (SceneManager.GetActiveScene().buildIndex != 0)
+        {
+            this.enemyBases = GameObject.FindGameObjectsWithTag("EnemyBase");
+            this.enemyBasesIndicators = GameObject.Find("MainCanvas/BasesPanel").GetComponentsInChildren<Image>();
+            this.clockText = GameObject.Find("MainCanvas/TimeLeftText/ClockText").GetComponent<Text>();
+            this.clockText.text = FormatTime(this.roundTime);
+            EnemySpawnManager.instance.enemyBases = enemyBases.Length;
+        }
+
         weaponsList = new GameObject[(Resources.LoadAll("Prefabs/Weapons").Length)];
         weaponsList = Resources.LoadAll("Prefabs/Weapons");
         _instance = this;
+
     }
 
     void Start()
     {
-        InitIndicators();
+        if (SceneManager.GetActiveScene().buildIndex != 0)
+            InitIndicators();
     }
 
     void Update()
     {
-        roundTime -= Time.deltaTime;
-        this.clockText.text = roundTime >= 0 ? FormatTime(roundTime) : "00:00";
-        this.enabled = roundTime > 0;
+        if (SceneManager.GetActiveScene().buildIndex == 0)
+        {
+            if (Input.GetKeyDown(KeyCode.Escape))
+            {
+                Application.Quit();
+                Debug.Log("Quit");
+            }
+        }
+        else
+        {
+            roundTime -= Time.deltaTime;
+            this.clockText.text = roundTime >= 0 ? FormatTime(roundTime) : "00:00";
+            this.enabled = roundTime > 0;
+
+            if (roundTime <= 0)
+            {
+                this.GameOver();
+            }
+
+            if (EnemySpawnManager.instance.currentEnemies == 0 && this.activeBases == 0)
+            {
+                this.LevelComplete();
+            }
+
+            if (Input.GetKeyDown(KeyCode.Escape) && !gameOver.activeSelf && !levelComplete.activeSelf)
+            {
+                GameManager.instance.Pause();
+            }
+        }
     }
 
     public void DeactivateBaseIndicator(int _instanceId)
@@ -129,6 +163,23 @@ public class GameManager : MonoBehaviour
     {
         Time.timeScale = 1;
         Application.LoadLevel(0);
+    }
+
+    public void GameOver()
+    {
+        Time.timeScale = 0;
+        this.gameOver.SetActive(true);
+    }
+
+    public void GameOverDelayed()
+    {
+        Invoke("GameOver", 1f);
+    }
+
+    private void LevelComplete()
+    {
+        //Time.timeScale = 0;
+        this.levelComplete.SetActive(true);
     }
 
 }

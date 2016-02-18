@@ -18,12 +18,12 @@ public class LifeController : MonoBehaviour, Idamageable {
     }
 
 	public void takeDamage(float value){
-		life -= life - value >= 0 ? value : 0f;
+        life = (life - value > 0) ? life - value : 0f;
 		UpdateRealLife ();
 	}
 
 	public void takeHeal(float value){
-		life += life + value <= lifeScalar ? value : 0f;
+        life = life + value < lifeScalar ? life + value : lifeScalar;
 		UpdateRealLife ();
 	}
 
@@ -31,7 +31,7 @@ public class LifeController : MonoBehaviour, Idamageable {
 	{
 		realLife = life / lifeScalar;
 
-        if (realLife == 0)
+        if (life == 0)
         {
             this.GetComponent<IDestroyable>().OnDeath();
         }

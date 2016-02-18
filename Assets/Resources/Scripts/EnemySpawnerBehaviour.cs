@@ -25,7 +25,6 @@ public class EnemySpawnerBehaviour : MonoBehaviour {
 
     private void SpawnBot()
     {
-        EnemySpawnManager.instance.EnemySpawned();
         lastSpawnTime = Time.time;
         StartCoroutine(SpawnDelayed(1f));
     }
@@ -33,6 +32,7 @@ public class EnemySpawnerBehaviour : MonoBehaviour {
     IEnumerator SpawnDelayed(float i)
     {
         yield return new WaitForSeconds(i);
+        EnemySpawnManager.instance.EnemySpawned();
         Transform enemy = PoolMaster.SpawnReference("Enemies", "Enemy", this.transform.position).transform;
         GameObject lifeBar = PoolMaster.SpawnReference("UI", "LifeBar", enemy.position);
         GameObject indicator = PoolMaster.SpawnReference("UI", "Indicator", enemy.position);

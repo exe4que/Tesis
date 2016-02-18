@@ -7,29 +7,37 @@ public class BulletBehaviour : MonoBehaviour, IBullet
     public float velocity = 10f;
     Vector3 hitPoint, initPoint, lastPoint;
     RaycastHit2D hit;
-    float distance, maxDistance = 15f;
+    float distance, maxDistance = 15f, lastRaycastTime = -1, raycastRate = 15f;
+
+
+
     public LayerMask whatToHit;
     void OnEnable()
     {
         initPoint = this.transform.position;
-        lastPoint = this.transform.position + this.transform.up * maxDistance;
-        PerformLinecast();
+        lastPoint = this.transform.position + this.transform.up * 15f;
     }
 
+    int cont = 0;
     private void PerformLinecast()
     {
-        hit = Physics2D.Linecast(this.transform.position, lastPoint, whatToHit);
+        if (Time.time >= lastRaycastTime + 1f/raycastRate)
+        {
+            hit = Physics2D.Linecast(this.transform.position, this.transform.position + this.transform.up * 1f, whatToHit);
+            lastRaycastTime = Time.time;
+            //Debug.DrawLine(this.transform.position, this.transform.position + this.transform.up * 1f, Color.red);
+            //Debug.DrawLine(this.transform.position, lastPoint, Color.cyan);
+        }
+        
         hitPoint = hit.collider != null ? new Vector3(hit.point.x, hit.point.y) : lastPoint;
         distance = Vector3.Distance(this.transform.position, hitPoint);
+        cont++;
     }
     void Update()
     {
-        //Debug.DrawLine(this.transform.position, lastPoint, Color.red);
-        //Debug.DrawLine(this.transform.position, hitPoint, Color.cyan);
-        
         PerformLinecast();
         CheckColision(0.1f);
-        AdjustScale();
+        //AdjustScale();
         transform.Translate(Vector3.up * velocity * Time.deltaTime);
     }
 

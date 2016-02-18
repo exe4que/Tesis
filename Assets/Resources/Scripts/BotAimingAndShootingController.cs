@@ -8,34 +8,37 @@ using VectorExtensionMethods;
 public class BotAimingAndShootingController : MonoBehaviour
 {
     public float aimingUnitsError = 1f;
-    public Transform defaultLookPoint;
     Shoot shootScript;
     LookAt lookAtScript;
     Vector3 targetPosition;
     bool fireButton = false;
+    float lastShootTime = 0f;
+
 
     void Awake()
     {
-        targetPosition = defaultLookPoint.position;
+        targetPosition = this.transform.position + this.transform.up;
         shootScript = this.GetComponent<Shoot>();
         lookAtScript = this.GetComponent<LookAt>();
+
     }
 
     void Update()
     {
         shootScript.fireButton = fireButton;
         lookAtScript.targetPosition = targetPosition;
+
+        if (Time.time >= lastShootTime + 0.5f)
+        {
+            targetPosition = this.transform.position + this.transform.up;
+            fireButton = false;
+        }
     }
 
     void OnTriggerStay2D(Collider2D col)
     {
         targetPosition = col.transform.position + Random.insideUnitCircle.ToVector3() * aimingUnitsError;
         fireButton = true;
-    }
-
-    void OnTriggerExit2D(Collider2D col)
-    {
-        targetPosition = defaultLookPoint.position;
-        fireButton = false;
+        lastShootTime = Time.time;
     }
 }

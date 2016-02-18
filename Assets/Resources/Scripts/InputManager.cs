@@ -7,12 +7,15 @@ public class InputManager : MonoBehaviour {
     public Joystick joystickRight;
 
     private static InputManager _instance;
-    
 
     public static InputManager instance
     {
-        get { return _instance; }
+        get
+        {
+            return _instance;
+        }
     }
+
 
 	void Awake () {
         joystickLeft.gameObject.SetActive(touchInput);

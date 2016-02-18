@@ -6,6 +6,7 @@ public class Shoot : MonoBehaviour
 	public bool isBot, fireButton;
     public GameObject activeWeapon;
 
+
     void Start()
     {
         AssignWeapon(0);
@@ -44,5 +45,11 @@ public class Shoot : MonoBehaviour
     {
         Destroy(this.transform.GetChild(0).gameObject);
         AssignWeapon(_index);
+        Invoke("RestoreWeapon", 10f);
+    }
+
+    private void RestoreWeapon()
+    {
+        AssignWeapon(0);
     }
 }

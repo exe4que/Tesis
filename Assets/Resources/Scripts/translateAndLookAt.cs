@@ -7,10 +7,9 @@ public class translateAndLookAt : MonoBehaviour
     public float velocity = 200f;
     [HideInInspector]
     public Vector3 inputAxis;
-    public bool isColliding = false;
     Vector3 direction;
     Rigidbody2D body;
-    CircleCollider2D thisCollider;
+    public CircleCollider2D thisCollider;
     BotMovementController controller;
     //public LayerMask whatToCollideWith;
 
@@ -20,6 +19,7 @@ public class translateAndLookAt : MonoBehaviour
         this.thisCollider = this.GetComponent<CircleCollider2D>();
         if (isBot)
         {
+
             if ((controller = this.GetComponent<BotMovementController>()) == null)
             {
                 Debug.LogError("BotMovementController is necessary");
@@ -29,8 +29,6 @@ public class translateAndLookAt : MonoBehaviour
 
     void Update()
     {
-
-        isColliding = this.thisCollider.IsTouchingLayers();
         if (!isBot)
         {
             this.inputAxis = new Vector3(InputManager.instance.GetAxis("Horizontal"), InputManager.instance.GetAxis("Vertical"), 0);
@@ -44,9 +42,12 @@ public class translateAndLookAt : MonoBehaviour
         }
         inputAxis.Normalize();
         //body.MovePosition(transform.position + new Vector3(inputAxis.x, inputAxis.y, 0) * velocity * Time.deltaTime);
-        body.velocity = new Vector3(inputAxis.x, inputAxis.y, 0) * velocity * Time.deltaTime;
+        body.velocity = new Vector3(inputAxis.x, inputAxis.y, 0) * velocity * 0.01f;
         direction = new Vector3(this.transform.position.x + inputAxis.x, this.transform.position.y + inputAxis.y, this.transform.position.z);
-        LookAtTarget(direction);
+        if (this.transform.position != direction)
+        {
+            LookAtTarget(direction);
+        }
     }
 
     private void LookAtTarget(Vector3 _target)
@@ -56,14 +57,4 @@ public class translateAndLookAt : MonoBehaviour
         float rot_z = Mathf.Atan2(diff.y, diff.x) * Mathf.Rad2Deg;
         transform.rotation = Quaternion.Euler(0f, 0f, rot_z - 90);
     }
-
-    //void OnCollisionStay2D(Collision2D col)
-    //{
-    //    isColliding = true;
-    //}
-
-    //void OnCollisionExit2D(Collision2D col)
-    //{
-    //    isColliding = false;
-    //}
 }

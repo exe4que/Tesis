@@ -8,5 +8,6 @@ public class PlayerDeathController : MonoBehaviour, IDestroyable {
         PoolMaster.Spawn("Particles", "explossionParticle", this.transform.position, this.transform.rotation);
         AudioManager.instance.PlaySound("Explosion");
         this.gameObject.SetActive(false);
+        GameManager.instance.GameOverDelayed();
     }
 }

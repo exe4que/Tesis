@@ -21,7 +21,7 @@ public class BotMovementController : MonoBehaviour
 		if ((int)Random.Range (0, (1 / Time.deltaTime) * 5) == 0)
 			RandomizeDirection ();
 
-		if (bot.isColliding) {
+		if (bot.thisCollider.IsTouchingLayers()) {
 			RandomizeDirection ();
 		}
         this.bot.inputAxis = this.botDirection;

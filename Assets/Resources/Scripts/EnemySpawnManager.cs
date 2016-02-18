@@ -32,7 +32,7 @@ public class EnemySpawnManager : MonoBehaviour
 
     public void OnEnemyDied()
     {
-        this._currentEnemies--;
+        _currentEnemies--;
     }
 
     public void OnBaseDestroyed()

@@ -10,7 +10,7 @@ public class Weapon_TripleGun : MonoBehaviour, IFireable {
     [Range(0f,1f)]
     public int bulletTraceSpacing = 0;
     [Range(0f, 90f)]
-    public int bulletTraceAngle = 30;
+    public float bulletTraceAngle = 30;
 
     private int fireRate;
     private string bulletName;

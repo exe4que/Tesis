@@ -45,10 +45,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\LevelSelectButtonBehaviour.cs" />
-     <Compile Include="Assets\LevelWarpManager.cs" />
-     <Compile Include="Assets\MusicButtonBehaviour.cs" />
-     <Compile Include="Assets\PauseButtonBehaviour.cs" />
      <Compile Include="Assets\Reporter\MultiKeyDictionary.cs" />
      <Compile Include="Assets\Reporter\Reporter.cs" />
      <Compile Include="Assets\Reporter\ReporterGUI.cs" />
@@ -69,31 +65,40 @@
      <Compile Include="Assets\Resources\Scripts\EnemyOffscreenIndicator.cs" />
      <Compile Include="Assets\Resources\Scripts\EnemySpawnManager.cs" />
      <Compile Include="Assets\Resources\Scripts\EnemySpawnerBehaviour.cs" />
+     <Compile Include="Assets\Resources\Scripts\FireParticleBehaviour.cs" />
      <Compile Include="Assets\Resources\Scripts\FlashEffect.cs" />
      <Compile Include="Assets\Resources\Scripts\GameManager.cs" />
      <Compile Include="Assets\Resources\Scripts\HealTest.cs" />
      <Compile Include="Assets\Resources\Scripts\InputManager.cs" />
      <Compile Include="Assets\Resources\Scripts\Interfaces.cs" />
      <Compile Include="Assets\Resources\Scripts\Joystick.cs" />
+     <Compile Include="Assets\Resources\Scripts\LevelCompleteBehaviour.cs" />
+     <Compile Include="Assets\Resources\Scripts\LevelSelectButtonBehaviour.cs" />
+     <Compile Include="Assets\Resources\Scripts\LevelWarpManager.cs" />
      <Compile Include="Assets\Resources\Scripts\LifeBarController.cs" />
      <Compile Include="Assets\Resources\Scripts\LifeController.cs" />
      <Compile Include="Assets\Resources\Scripts\LookAt.cs" />
      <Compile Include="Assets\Resources\Scripts\MapManager.cs" />
+     <Compile Include="Assets\Resources\Scripts\MusicButtonBehaviour.cs" />
+     <Compile Include="Assets\Resources\Scripts\PauseButtonBehaviour.cs" />
      <Compile Include="Assets\Resources\Scripts\PlayerDeathController.cs" />
      <Compile Include="Assets\Resources\Scripts\PooledParticleBehaviour.cs" />
      <Compile Include="Assets\Resources\Scripts\PowerUp.cs" />
+     <Compile Include="Assets\Resources\Scripts\ResumeButtonBehaviour.cs" />
      <Compile Include="Assets\Resources\Scripts\Shoot.cs" />
+     <Compile Include="Assets\Resources\Scripts\SoundButtonBehaviour.cs" />
+     <Compile Include="Assets\Resources\Scripts\SpinningEffect.cs" />
+     <Compile Include="Assets\Resources\Scripts\StarsPanelBehaviour.cs" />
      <Compile Include="Assets\Resources\Scripts\TileBehaviour.cs" />
      <Compile Include="Assets\Resources\Scripts\TileParticlesEffect.cs" />
      <Compile Include="Assets\Resources\Scripts\Vector3ExtensionMethods.cs" />
+     <Compile Include="Assets\Resources\Scripts\WarperBehaviour.cs" />
+     <Compile Include="Assets\Resources\Scripts\Weapon_Double.cs" />
+     <Compile Include="Assets\Resources\Scripts\Weapon_FlameThrower.cs" />
      <Compile Include="Assets\Resources\Scripts\Weapon_Laser.cs" />
      <Compile Include="Assets\Resources\Scripts\Weapon_Simple.cs" />
      <Compile Include="Assets\Resources\Scripts\Weapon_TripleGun.cs" />
      <Compile Include="Assets\Resources\Scripts\translateAndLookAt.cs" />
-     <Compile Include="Assets\ResumeButtonBehaviour.cs" />
-     <Compile Include="Assets\SoundButtonBehaviour.cs" />
-     <Compile Include="Assets\SpinningEffect.cs" />
-     <Compile Include="Assets\WarperBehaviour.cs" />
      <Compile Include="Assets\hamsterbyte\Pool Master\ObjectPool.cs" />
      <Compile Include="Assets\hamsterbyte\Pool Master\Pool.cs" />
      <Compile Include="Assets\hamsterbyte\Pool Master\PoolMaster.cs" />
