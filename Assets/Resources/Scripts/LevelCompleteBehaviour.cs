@@ -23,34 +23,59 @@ public class LevelCompleteBehaviour : MonoBehaviour
     {
         targetLife = playerLifeController.realLife;
         targetTime = GameManager.instance.roundTime;
-
-        Invoke("ShowStars", 1f);
         isEnabled = true;
     }
 
-    
+
     void Update()
     {
         if (isEnabled)
         {
-            initLife = (initLife < targetLife * 100 - 0.1f)? Mathf.Lerp(initLife, targetLife * 100f, Time.smoothDeltaTime * 3f) : targetLife * 100;
-            initTime = (initTime < targetTime - 0.1f)? Mathf.Lerp(initTime, targetTime, Time.smoothDeltaTime * 3f) : targetTime;
+
+            initLife = (initLife < targetLife * 100 - 0.1f) ? Mathf.Lerp(initLife, targetLife * 100f, Time.smoothDeltaTime * 2f) : targetLife * 100;
+            initTime = (initTime < targetTime - 0.1f) ? Mathf.Lerp(initTime, targetTime, Time.smoothDeltaTime * 2f) : targetTime;
             life.text = "Life: " + initLife.ToString("F2") + "%";
             timeLeft.text = "Time Left: " + initTime.ToString("F2") + "s";
+
+            if (initLife != targetLife && initTime != targetTime)
+            {
+                AudioManager.instance.PlaySound("Score");
+            }
+            else
+            {
+                this.ShowStars();
+                isEnabled = false;
+            }
         }
     }
 
     private void ShowStars()
     {
         float _value = targetLife * targetTime;
-        Debug.Log("_value = " + _value);
-        int res = 0;
 
-        if (_value >= 60) res = 3;
-        if (_value >= 40 && _value < 60) res = 2;
-        if (_value < 40) res = 1;
+        int res = DetermineStars(_value);
 
+        int oldMaxLevel = int.Parse(PlayerPrefs.GetString("MaxLevelUnblocked").Replace("Level", ""));
+        int thisLevel = int.Parse(Application.loadedLevelName.Replace("Level", ""));
+
+        Debug.Log("oldMaxLevel = " + oldMaxLevel + ", thisLevel = " + thisLevel);
+        if (oldMaxLevel < thisLevel)
+        {
+            PlayerPrefs.SetString("MaxLevelUnblocked", Application.loadedLevelName);
+        }
+        PlayerPrefs.SetInt(Application.loadedLevelName + " - Stars", res);
         starsPanel.ShowStars(res);
     }
-        
+
+    private static int DetermineStars(float _value)
+    {
+        if(_value <= 20)
+            return 1;
+        if (_value <= 40)
+            return 2;
+        if (_value > 40)
+            return 3;
+        return 0;
+    }
+
 }

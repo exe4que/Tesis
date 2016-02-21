@@ -4,7 +4,7 @@ using System.Collections;
 
 public class WarperBehaviour : MonoBehaviour {
 
-    public int levelToWarp = 0;
+    public string levelToWarp;
 
     void Awake()
     {

@@ -20,7 +20,6 @@ public class StarsPanelBehaviour : MonoBehaviour {
 
     IEnumerator Show(int _amount)
     {
-        Debug.Log("_amount = " + _amount);
         for (int i = 0; i < _amount; i++)
         {
             stars[i].SetBool("Start", true);

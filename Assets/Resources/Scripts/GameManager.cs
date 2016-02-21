@@ -14,7 +14,7 @@ public class GameManager : MonoBehaviour
     private Text clockText;
     public float roundTime = 180f;
     public int activeBases = 6;
-    public GameObject pauseMenu, gameOver, levelComplete;
+    public GameObject pauseMenu, gameOver, levelComplete, helpMenu;
     public LayerMask playerMask, botMask;
     private UnityEngine.Object[] _weaponsList;
 
@@ -50,6 +50,14 @@ public class GameManager : MonoBehaviour
     {
         Application.targetFrameRate = -1;
         Time.timeScale = 1f;
+
+        if (PlayerPrefs.GetInt("FirstPlay") == 0)
+        {
+            PlayerPrefs.SetInt("Music", 1);
+            PlayerPrefs.SetInt("Sound", 1);
+            PlayerPrefs.SetInt("FirstPlay", 1);
+        }
+
         if (SceneManager.GetActiveScene().buildIndex != 0)
         {
             this.enemyBases = GameObject.FindGameObjectsWithTag("EnemyBase");
@@ -67,6 +75,7 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
+        
         if (SceneManager.GetActiveScene().buildIndex != 0)
             InitIndicators();
     }
@@ -77,7 +86,7 @@ public class GameManager : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.Escape))
             {
-                Application.Quit();
+                this.Exit();
                 Debug.Log("Quit");
             }
         }
@@ -87,7 +96,7 @@ public class GameManager : MonoBehaviour
             this.clockText.text = roundTime >= 0 ? FormatTime(roundTime) : "00:00";
             this.enabled = roundTime > 0;
 
-            if (roundTime <= 0)
+            if (roundTime <= 0 && !levelComplete.activeSelf)
             {
                 this.GameOver();
             }
@@ -97,7 +106,7 @@ public class GameManager : MonoBehaviour
                 this.LevelComplete();
             }
 
-            if (Input.GetKeyDown(KeyCode.Escape) && !gameOver.activeSelf && !levelComplete.activeSelf)
+            if (Input.GetKeyDown(KeyCode.Escape) && !gameOver.activeSelf && !levelComplete.activeSelf && !helpMenu.activeSelf)
             {
                 GameManager.instance.Pause();
             }
@@ -149,8 +158,16 @@ public class GameManager : MonoBehaviour
 
     public void Pause()
     {
+        if (!helpMenu.activeSelf)
+        {
+            Time.timeScale = 0;
+            pauseMenu.SetActive(true);
+        }
+    }
+
+    public void PauseHiddenMenu()
+    {
         Time.timeScale = 0;
-        pauseMenu.SetActive(true);
     }
 
     public void Resume()
@@ -180,6 +197,11 @@ public class GameManager : MonoBehaviour
     {
         //Time.timeScale = 0;
         this.levelComplete.SetActive(true);
+    }
+
+    public void Exit()
+    {
+        Application.Quit();
     }
 
 }

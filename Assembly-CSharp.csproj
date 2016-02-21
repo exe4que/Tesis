@@ -56,8 +56,10 @@
      <Compile Include="Assets\Resources\Scripts\BaseIconAnimator.cs" />
      <Compile Include="Assets\Resources\Scripts\BotAimingAndShootingController.cs" />
      <Compile Include="Assets\Resources\Scripts\BotMovementController.cs" />
+     <Compile Include="Assets\Resources\Scripts\BouncingEffect.cs" />
      <Compile Include="Assets\Resources\Scripts\BulletBehaviour.cs" />
      <Compile Include="Assets\Resources\Scripts\BulletFormBehaviour.cs" />
+     <Compile Include="Assets\Resources\Scripts\Camera2DFollow.cs" />
      <Compile Include="Assets\Resources\Scripts\CameraFollow.cs" />
      <Compile Include="Assets\Resources\Scripts\DamageTest.cs" />
      <Compile Include="Assets\Resources\Scripts\EnemyBaseDeathController.cs" />
@@ -73,6 +75,7 @@
      <Compile Include="Assets\Resources\Scripts\Interfaces.cs" />
      <Compile Include="Assets\Resources\Scripts\Joystick.cs" />
      <Compile Include="Assets\Resources\Scripts\LevelCompleteBehaviour.cs" />
+     <Compile Include="Assets\Resources\Scripts\LevelInfoBehaviour.cs" />
      <Compile Include="Assets\Resources\Scripts\LevelSelectButtonBehaviour.cs" />
      <Compile Include="Assets\Resources\Scripts\LevelWarpManager.cs" />
      <Compile Include="Assets\Resources\Scripts\LifeBarController.cs" />

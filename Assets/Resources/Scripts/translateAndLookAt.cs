@@ -11,12 +11,16 @@ public class translateAndLookAt : MonoBehaviour
     Rigidbody2D body;
     public CircleCollider2D thisCollider;
     BotMovementController controller;
+    LookAt helmet;
+    Shoot sameHelmet;
     //public LayerMask whatToCollideWith;
 
     void Awake()
     {
         this.body = this.GetComponent<Rigidbody2D>();
         this.thisCollider = this.GetComponent<CircleCollider2D>();
+        this.helmet = this.GetComponentInChildren<LookAt>();
+        this.sameHelmet = this.GetComponentInChildren<Shoot>();
         if (isBot)
         {
 
@@ -28,6 +32,14 @@ public class translateAndLookAt : MonoBehaviour
     }
 
     void Update()
+    {
+        helmet.AimAt();
+        sameHelmet.ShootNow();
+        MoveAndLookAt();
+
+    }
+
+    private void MoveAndLookAt()
     {
         if (!isBot)
         {

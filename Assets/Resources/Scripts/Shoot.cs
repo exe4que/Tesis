@@ -5,6 +5,7 @@ public class Shoot : MonoBehaviour
 {
 	public bool isBot, fireButton;
     public GameObject activeWeapon;
+    private float timeToResetWeapon = -99f;
 
 
     void Start()
@@ -18,7 +19,7 @@ public class Shoot : MonoBehaviour
         activeWeapon.transform.SetParent(this.transform);
     }
 
-	void Update ()
+	public void ShootNow()
 	{
         if (!isBot)
         {
@@ -34,7 +35,24 @@ public class Shoot : MonoBehaviour
                 OnShoot(GameManager.instance.playerMask);
             }
 		}
+        CheckResetWeapon();
 	}
+
+    private void CheckResetWeapon()
+    {
+        if (timeToResetWeapon != -99f)
+        {
+            if (timeToResetWeapon <= 0f)
+            {
+                ResetWeapon();
+                timeToResetWeapon = -99f;
+            }
+            else
+            {
+                timeToResetWeapon -= Time.deltaTime;
+            }
+        }
+    }
 
 	void OnShoot (LayerMask _validTarget)
 	{
@@ -45,10 +63,10 @@ public class Shoot : MonoBehaviour
     {
         Destroy(this.transform.GetChild(0).gameObject);
         AssignWeapon(_index);
-        Invoke("RestoreWeapon", 10f);
+        timeToResetWeapon = 10f;
     }
 
-    private void RestoreWeapon()
+    private void ResetWeapon()
     {
         AssignWeapon(0);
     }

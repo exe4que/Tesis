@@ -7,7 +7,7 @@ public class BulletBehaviour : MonoBehaviour, IBullet
     public float velocity = 10f;
     Vector3 hitPoint, initPoint, lastPoint;
     RaycastHit2D hit;
-    float distance, maxDistance = 15f, lastRaycastTime = -1, raycastRate = 15f;
+    float distance, maxDistance = 15f, lastRaycastTime = -1, raycastRate = 25f;
 
 
 

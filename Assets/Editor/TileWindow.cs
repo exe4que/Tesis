@@ -166,7 +166,13 @@ public class TileWindow : EditorWindow
                                     GameObject newgo = (GameObject)Instantiate(tileObj, mouseWorldPos, new Quaternion());
                                     //newgo.transform.position = mouseWorldPos;
                                     //newgo.GetComponent<SpriteRenderer>().sprite = activeSprite;
+                                    newgo.GetComponent<SpriteRenderer>().sprite = activeSprite;
+                                    newgo.GetComponent<TileBehaviour>().index = index;
+                                    newgo.name = "Tile";
                                     newgo.tag = tagName;
+                                    if (parentObj != null)
+                                        newgo.transform.SetParent(parentObj.transform);
+                                    UpdateNearbyTiles(mouseWorldPos, allgo, newgo, true);
                                     //if (addBoxCollider)
                                     //newgo.AddComponent<BoxCollider2D>();
                                 }

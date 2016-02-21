@@ -10,7 +10,7 @@ public class MapManager : MonoBehaviour
     Sprite[][] spriteArray;
     Texture[] files;
     GameObject[] tileArray;
-    private static Vector2 gridSize = new Vector2(0.32f, 0.32f);
+    private static Vector2 gridSize = new Vector2(0.64f, 0.64f);
 
     private static MapManager _instance;
 

@@ -17,17 +17,17 @@ public class FlashEffect : MonoBehaviour, IAnimable2 {
 
     public void SetBool(string _param, bool _value)
     {
-        this.SendMessage(_param, _value);
+        this.SendMessage(_param, _value, SendMessageOptions.DontRequireReceiver);
     }
 
     public void SetFloat(string _param, float _value)
     {
-        this.SendMessage(_param, _value);
+        this.SendMessage(_param, _value, SendMessageOptions.DontRequireReceiver);
     }
 
     public void SetInt(string _param, int _value)
     {
-        this.SendMessage(_param, _value);
+        this.SendMessage(_param, _value, SendMessageOptions.DontRequireReceiver);
     }
 
     public void isFlashing(bool _value)
