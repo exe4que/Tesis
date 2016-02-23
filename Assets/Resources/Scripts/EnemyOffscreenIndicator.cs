@@ -6,15 +6,17 @@ public class EnemyOffscreenIndicator : MonoBehaviour {
 
     public Transform goToTrack;
     private Image renderer;
+    private Camera mainCamera;
 
     void Awake()
     {
         renderer = this.GetComponent<Image>();
+        mainCamera = Camera.main;
     }
 
     void Update()
     {
-        Vector3 v3Screen = Camera.main.WorldToViewportPoint(goToTrack.position);
+        Vector3 v3Screen = mainCamera.WorldToViewportPoint(goToTrack.position);
         if (v3Screen.x > -0.01f && v3Screen.x < 1.01f && v3Screen.y > -0.01f && v3Screen.y < 1.01f)
             renderer.enabled = false;
         else

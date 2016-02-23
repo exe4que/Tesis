@@ -38,7 +38,8 @@ public class BulletBehaviour : MonoBehaviour, IBullet
         PerformLinecast();
         CheckColision(0.1f);
         //AdjustScale();
-        transform.Translate(Vector3.up * velocity * Time.deltaTime);
+        //transform.Translate(Vector3.up * velocity * Time.deltaTime);
+        transform.position += transform.up * velocity * Time.deltaTime;
     }
 
     

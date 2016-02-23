@@ -5,6 +5,7 @@ public class InputManager : MonoBehaviour {
     public bool touchInput = false;
     public Joystick joystickLeft;
     public Joystick joystickRight;
+    private Camera mainCamera;
 
     private static InputManager _instance;
 
@@ -20,6 +21,7 @@ public class InputManager : MonoBehaviour {
 	void Awake () {
         joystickLeft.gameObject.SetActive(touchInput);
         joystickRight.gameObject.SetActive(touchInput);
+        mainCamera = Camera.main;
         _instance = this;
 	}
 
@@ -52,7 +54,7 @@ public class InputManager : MonoBehaviour {
 
     public Vector3 GetFireVector()
     {
-        Vector3 ret = (touchInput) ? joystickRight.GetDirection() : Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        Vector3 ret = (touchInput) ? joystickRight.GetDirection() : mainCamera.ScreenToWorldPoint(Input.mousePosition);
         return ret;
     }
 }

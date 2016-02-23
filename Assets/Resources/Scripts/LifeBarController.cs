@@ -15,10 +15,18 @@ public class LifeBarController : MonoBehaviour
     LifeController lifeController;
     Slider thisSlider;
     float storedRealLife, timeOfLastImpact;
+    Camera mainCamera;
+    Image[] children;
 
+    void Awake()
+    {
+        children = this.GetComponentsInChildren<Image>();
+        thisSlider = this.GetComponent<Slider>();
+        mainCamera = Camera.main;
+    }
+    
     void OnEnable()
     {
-        thisSlider = this.GetComponent<Slider>();
         if (target != null)
         {
             lifeController = target.GetComponent<LifeController>();
@@ -39,6 +47,12 @@ public class LifeBarController : MonoBehaviour
                 this.transform.position = target.position + Vector3.up * YOffset;
             ModifyValue(isSmooth, smoothValue);
         }
+
+        Vector3 pointInCamera = mainCamera.WorldToViewportPoint(this.transform.position);
+        bool val = pointInCamera.x > 0 && pointInCamera.x < 1 && pointInCamera.y > 0 && pointInCamera.y < 1 && pointInCamera.z > 0;
+        children[0].enabled = val;
+        children[1].enabled = val;
+
     }
 
 
@@ -73,4 +87,6 @@ public class LifeBarController : MonoBehaviour
         target = _target;
         lifeController = target.GetComponent<LifeController>();
     }
+
+
 }

@@ -148,12 +148,18 @@ public class GameManager : MonoBehaviour
 
     string FormatTime(float _seconds)
     {
-        TimeSpan t = TimeSpan.FromSeconds(_seconds);
+        //TimeSpan t = TimeSpan.FromSeconds(_seconds);
 
-        string ret = string.Format("{0:D2}:{1:D2}",
-                        t.Minutes,
-                        t.Seconds);
-        return ret;
+        //string ret = string.Format("{0:D2}:{1:D2}",
+        //                t.Minutes,
+        //                t.Seconds);
+        int totalSeconds = (int)_seconds;
+        int seconds = totalSeconds % 60;
+        int minutes = totalSeconds / 60;
+        //string time = minutes + ":" + seconds;
+
+        string time = minutes.ToString() + ":" + seconds.ToString().PadLeft(2, '0');
+        return time;
     }
 
     public void Pause()
